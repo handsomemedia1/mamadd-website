@@ -1,0 +1,161 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model AdminUser {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  password  String
+  createdAt DateTime @default(now())
+}
+
+model Category {
+  id        String     @id @default(cuid())
+  name      String
+  order     Int        @default(0)
+  menuItems MenuItem[]
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+}
+
+model MenuItem {
+  id             String          @id @default(cuid())
+  name           String
+  description    String?
+  price          Float
+  imageUrl       String?
+  isAvailable    Boolean         @default(true)
+  isFeatured     Boolean         @default(false)
+  category       Category        @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+  categoryId     String
+  createdAt      DateTime        @default(now())
+  updatedAt      DateTime        @updatedAt
+  timetableItems TimetableItem[]
+}
+
+model FoodTimetable {
+  id          String          @id @default(cuid())
+  date        DateTime        @unique // specific date, e.g. 2026-03-04
+  dayOfWeek   String          // "Monday", "Tuesday", etc.
+  note        String?         // e.g. "Special Ramadan menu"
+  isPublished Boolean         @default(false)
+  items       TimetableItem[]
+  createdAt   DateTime        @default(now())
+  updatedAt   DateTime        @updatedAt
+}
+
+model TimetableItem {
+  id           String        @id @default(cuid())
+  timetable    FoodTimetable @relation(fields: [timetableId], references: [id], onDelete: Cascade)
+  timetableId  String
+  menuItem     MenuItem      @relation(fields: [menuItemId], references: [id])
+  menuItemId   String
+  specialPrice Float?        // optional price override for this day
+  note         String?       // e.g. "Extra spicy today"
+}
+
+model BlogPost {
+  id              String   @id @default(cuid())
+  title           String
+  slug            String   @unique
+  excerpt         String?
+  content         String
+  metaTitle       String?
+  metaDescription String?
+  coverImage      String?
+  published       Boolean  @default(false)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
+
+model Setting {
+  id    String @id @default(cuid())
+  key   String @unique
+  value String
+}
+
+model LegalPage {
+  id        String   @id @default(cuid())
+  title     String
+  slug      String   @unique
+  content   String
+  type      String   // terms, privacy, legal-notice, certificate, other
+  isActive  Boolean  @default(true)
+  order     Int      @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model PaymentMethod {
+  id           String  @id @default(cuid())
+  name         String
+  description  String?
+  icon         String? // emoji or URL
+  instructions String?
+  isActive     Boolean @default(true)
+  order        Int     @default(0)
+}
+
+model Customer {
+  id            String             @id @default(cuid())
+  name          String
+  email         String             @unique
+  phone         String
+  whatsappNumber String?
+  referralCode  String             @unique // e.g. "MAMA-AB12"
+  referredBy    String?            // referral code used at signup
+  points        Int                @default(0)
+  isSubscribed  Boolean            @default(true)
+  createdAt     DateTime           @default(now())
+  updatedAt     DateTime           @updatedAt
+  bookings      Booking[]
+  pointHistory  PointTransaction[]
+}
+
+model AvailabilitySlot {
+  id          String    @id @default(cuid())
+  date        DateTime
+  startTime   String    // "18:00"
+  endTime     String    // "20:00"
+  maxBookings Int       @default(10)
+  isOpen      Boolean   @default(true)
+  note        String?   // optional note e.g. "Ramadan menu only"
+  bookings    Booking[]
+  createdAt   DateTime  @default(now())
+}
+
+model Booking {
+  id         String           @id @default(cuid())
+  customer   Customer         @relation(fields: [customerId], references: [id])
+  customerId String
+  slot       AvailabilitySlot @relation(fields: [slotId], references: [id])
+  slotId     String
+  partySize  Int              @default(1)
+  notes      String?
+  status     String           @default("pending") // pending, confirmed, cancelled
+  createdAt  DateTime         @default(now())
+  updatedAt  DateTime         @updatedAt
+}
+
+model PointTransaction {
+  id          String   @id @default(cuid())
+  customer    Customer @relation(fields: [customerId], references: [id])
+  customerId  String
+  points      Int      // positive = earned, negative = redeemed
+  type        String   // "order", "referral_bonus", "referral_signup", "redemption", "manual"
+  description String
+  createdAt   DateTime @default(now())
+}
+
+model NewsletterSubscriber {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  name      String?
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+}
