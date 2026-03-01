@@ -1,9 +1,17 @@
 "use server";
 
 import { prisma } from "@/lib/db";
+import { getSession } from "@/lib/auth";
 import { revalidatePath } from "next/cache";
 
+async function requireAdmin() {
+    const session = await getSession();
+    if (!session) throw new Error("Unauthorized");
+    return session;
+}
+
 export async function updateBookingStatus(bookingId: string, status: "confirmed" | "cancelled") {
+    await requireAdmin();
     await prisma.booking.update({
         where: { id: bookingId },
         data: { status },
@@ -12,6 +20,7 @@ export async function updateBookingStatus(bookingId: string, status: "confirmed"
 }
 
 export async function createSlot(formData: FormData) {
+    await requireAdmin();
     const date = formData.get("date") as string;
     const startTime = formData.get("startTime") as string;
     const endTime = formData.get("endTime") as string;
@@ -33,6 +42,7 @@ export async function createSlot(formData: FormData) {
 }
 
 export async function toggleSlot(slotId: string, isOpen: boolean) {
+    await requireAdmin();
     await prisma.availabilitySlot.update({
         where: { id: slotId },
         data: { isOpen: !isOpen },
@@ -42,6 +52,7 @@ export async function toggleSlot(slotId: string, isOpen: boolean) {
 }
 
 export async function deleteSlot(slotId: string) {
+    await requireAdmin();
     await prisma.availabilitySlot.delete({ where: { id: slotId } });
     revalidatePath("/admin/bookings");
     revalidatePath("/book");

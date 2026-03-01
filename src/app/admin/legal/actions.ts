@@ -1,7 +1,14 @@
 "use server";
 
 import { prisma } from "@/lib/db";
+import { getSession } from "@/lib/auth";
 import { revalidatePath } from "next/cache";
+
+async function requireAdmin() {
+    const session = await getSession();
+    if (!session) throw new Error("Unauthorized");
+    return session;
+}
 
 function slugify(text: string): string {
     return text
@@ -13,6 +20,7 @@ function slugify(text: string): string {
 // ─── Legal Pages ──────────────────────────────
 
 export async function createLegalPage(formData: FormData) {
+    await requireAdmin();
     const title = formData.get("title") as string;
     const content = formData.get("content") as string;
     const type = formData.get("type") as string;
@@ -45,6 +53,7 @@ export async function createLegalPage(formData: FormData) {
 }
 
 export async function updateLegalPage(id: string, formData: FormData) {
+    await requireAdmin();
     const title = formData.get("title") as string;
     const slug = formData.get("slug") as string;
     const content = formData.get("content") as string;
@@ -72,6 +81,7 @@ export async function updateLegalPage(id: string, formData: FormData) {
 }
 
 export async function deleteLegalPage(id: string) {
+    await requireAdmin();
     await prisma.legalPage.delete({ where: { id } });
     revalidatePath("/admin/legal");
     revalidatePath("/legal");
@@ -81,6 +91,7 @@ export async function deleteLegalPage(id: string) {
 // ─── Payment Methods ──────────────────────────
 
 export async function createPaymentMethod(formData: FormData) {
+    await requireAdmin();
     const name = formData.get("name") as string;
     const description = formData.get("description") as string;
     const icon = formData.get("icon") as string;
@@ -108,6 +119,7 @@ export async function createPaymentMethod(formData: FormData) {
 }
 
 export async function updatePaymentMethod(id: string, formData: FormData) {
+    await requireAdmin();
     const name = formData.get("name") as string;
     const description = formData.get("description") as string;
     const icon = formData.get("icon") as string;
@@ -133,6 +145,7 @@ export async function updatePaymentMethod(id: string, formData: FormData) {
 }
 
 export async function deletePaymentMethod(id: string) {
+    await requireAdmin();
     await prisma.paymentMethod.delete({ where: { id } });
     revalidatePath("/admin/legal");
     revalidatePath("/legal");

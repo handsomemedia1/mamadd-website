@@ -1,11 +1,19 @@
 "use server";
 
 import { prisma } from "@/lib/db";
+import { getSession } from "@/lib/auth";
 import { revalidatePath } from "next/cache";
+
+async function requireAdmin() {
+    const session = await getSession();
+    if (!session) throw new Error("Unauthorized");
+    return session;
+}
 
 // ─── Categories ───────────────────────────────
 
 export async function createCategory(formData: FormData) {
+    await requireAdmin();
     const name = formData.get("name") as string;
     if (!name?.trim()) return { error: "Category name is required" };
 
@@ -20,6 +28,7 @@ export async function createCategory(formData: FormData) {
 }
 
 export async function updateCategory(id: string, formData: FormData) {
+    await requireAdmin();
     const name = formData.get("name") as string;
     if (!name?.trim()) return { error: "Category name is required" };
 
@@ -30,6 +39,7 @@ export async function updateCategory(id: string, formData: FormData) {
 }
 
 export async function deleteCategory(id: string) {
+    await requireAdmin();
     await prisma.category.delete({ where: { id } });
     revalidatePath("/admin/menu");
     revalidatePath("/menu");
@@ -39,6 +49,7 @@ export async function deleteCategory(id: string) {
 // ─── Menu Items ───────────────────────────────
 
 export async function createMenuItem(formData: FormData) {
+    await requireAdmin();
     const name = formData.get("name") as string;
     const description = formData.get("description") as string;
     const price = parseFloat(formData.get("price") as string);
@@ -68,6 +79,7 @@ export async function createMenuItem(formData: FormData) {
 }
 
 export async function updateMenuItem(id: string, formData: FormData) {
+    await requireAdmin();
     const name = formData.get("name") as string;
     const description = formData.get("description") as string;
     const price = parseFloat(formData.get("price") as string);
@@ -96,6 +108,7 @@ export async function updateMenuItem(id: string, formData: FormData) {
 }
 
 export async function toggleItemAvailability(id: string, isAvailable: boolean) {
+    await requireAdmin();
     await prisma.menuItem.update({
         where: { id },
         data: { isAvailable },
@@ -107,6 +120,7 @@ export async function toggleItemAvailability(id: string, isAvailable: boolean) {
 }
 
 export async function deleteMenuItem(id: string) {
+    await requireAdmin();
     await prisma.menuItem.delete({ where: { id } });
     revalidatePath("/admin/menu");
     revalidatePath("/menu");

@@ -1,7 +1,14 @@
 "use server";
 
 import { prisma } from "@/lib/db";
+import { getSession } from "@/lib/auth";
 import { revalidatePath } from "next/cache";
+
+async function requireAdmin() {
+    const session = await getSession();
+    if (!session) throw new Error("Unauthorized");
+    return session;
+}
 
 function slugify(text: string): string {
     return text
@@ -11,6 +18,7 @@ function slugify(text: string): string {
 }
 
 export async function createBlogPost(formData: FormData) {
+    await requireAdmin();
     const title = formData.get("title") as string;
     const excerpt = formData.get("excerpt") as string;
     const content = formData.get("content") as string;
@@ -22,7 +30,6 @@ export async function createBlogPost(formData: FormData) {
     if (!title?.trim()) return { error: "Title is required" };
     if (!content?.trim()) return { error: "Content is required" };
 
-    // Generate unique slug
     let slug = slugify(title);
     const existing = await prisma.blogPost.findUnique({ where: { slug } });
     if (existing) slug = `${slug}-${Date.now().toString(36)}`;
@@ -46,6 +53,7 @@ export async function createBlogPost(formData: FormData) {
 }
 
 export async function updateBlogPost(id: string, formData: FormData) {
+    await requireAdmin();
     const title = formData.get("title") as string;
     const slug = formData.get("slug") as string;
     const excerpt = formData.get("excerpt") as string;
@@ -79,6 +87,7 @@ export async function updateBlogPost(id: string, formData: FormData) {
 }
 
 export async function togglePublished(id: string, published: boolean) {
+    await requireAdmin();
     await prisma.blogPost.update({
         where: { id },
         data: { published },
@@ -89,6 +98,7 @@ export async function togglePublished(id: string, published: boolean) {
 }
 
 export async function deleteBlogPost(id: string) {
+    await requireAdmin();
     await prisma.blogPost.delete({ where: { id } });
     revalidatePath("/admin/blog");
     revalidatePath("/blog");
