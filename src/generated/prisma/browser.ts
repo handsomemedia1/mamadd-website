@@ -33,6 +33,16 @@ export type Category = Prisma.CategoryModel
  */
 export type MenuItem = Prisma.MenuItemModel
 /**
+ * Model FoodTimetable
+ * 
+ */
+export type FoodTimetable = Prisma.FoodTimetableModel
+/**
+ * Model TimetableItem
+ * 
+ */
+export type TimetableItem = Prisma.TimetableItemModel
+/**
  * Model BlogPost
  * 
  */
@@ -72,3 +82,8 @@ export type Booking = Prisma.BookingModel
  * 
  */
 export type PointTransaction = Prisma.PointTransactionModel
+/**
+ * Model NewsletterSubscriber
+ * 
+ */
+export type NewsletterSubscriber = Prisma.NewsletterSubscriberModel

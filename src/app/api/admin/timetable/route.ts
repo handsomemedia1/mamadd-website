@@ -1,8 +1,13 @@
 import { prisma } from "@/lib/db";
+import { getSession } from "@/lib/auth";
 import { NextRequest, NextResponse } from "next/server";
+
+const UNAUTHORIZED = () => NextResponse.json({ error: "Unauthorized" }, { status: 401 });
 
 // GET /api/admin/timetable?weekStart=2026-03-03
 export async function GET(request: NextRequest) {
+    const session = await getSession();
+    if (!session) return UNAUTHORIZED();
     const { searchParams } = request.nextUrl;
     const weekStartStr = searchParams.get("weekStart");
 
@@ -33,6 +38,9 @@ export async function GET(request: NextRequest) {
 
 // POST /api/admin/timetable — create or update a day's timetable
 export async function POST(request: NextRequest) {
+    const session = await getSession();
+    if (!session) return UNAUTHORIZED();
+
     const body = await request.json();
     const { date, dayOfWeek, menuItemIds, note, isPublished } = body as {
         date: string;
@@ -79,6 +87,9 @@ export async function POST(request: NextRequest) {
 
 // DELETE /api/admin/timetable?id=xxx
 export async function DELETE(request: NextRequest) {
+    const session = await getSession();
+    if (!session) return UNAUTHORIZED();
+
     const { searchParams } = request.nextUrl;
     const id = searchParams.get("id");
 

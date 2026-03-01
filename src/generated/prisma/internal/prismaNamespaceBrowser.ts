@@ -54,6 +54,8 @@ export const ModelName = {
   AdminUser: 'AdminUser',
   Category: 'Category',
   MenuItem: 'MenuItem',
+  FoodTimetable: 'FoodTimetable',
+  TimetableItem: 'TimetableItem',
   BlogPost: 'BlogPost',
   Setting: 'Setting',
   LegalPage: 'LegalPage',
@@ -61,7 +63,8 @@ export const ModelName = {
   Customer: 'Customer',
   AvailabilitySlot: 'AvailabilitySlot',
   Booking: 'Booking',
-  PointTransaction: 'PointTransaction'
+  PointTransaction: 'PointTransaction',
+  NewsletterSubscriber: 'NewsletterSubscriber'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -115,6 +118,30 @@ export const MenuItemScalarFieldEnum = {
 } as const
 
 export type MenuItemScalarFieldEnum = (typeof MenuItemScalarFieldEnum)[keyof typeof MenuItemScalarFieldEnum]
+
+
+export const FoodTimetableScalarFieldEnum = {
+  id: 'id',
+  date: 'date',
+  dayOfWeek: 'dayOfWeek',
+  note: 'note',
+  isPublished: 'isPublished',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type FoodTimetableScalarFieldEnum = (typeof FoodTimetableScalarFieldEnum)[keyof typeof FoodTimetableScalarFieldEnum]
+
+
+export const TimetableItemScalarFieldEnum = {
+  id: 'id',
+  timetableId: 'timetableId',
+  menuItemId: 'menuItemId',
+  specialPrice: 'specialPrice',
+  note: 'note'
+} as const
+
+export type TimetableItemScalarFieldEnum = (typeof TimetableItemScalarFieldEnum)[keyof typeof TimetableItemScalarFieldEnum]
 
 
 export const BlogPostScalarFieldEnum = {
@@ -226,6 +253,17 @@ export const PointTransactionScalarFieldEnum = {
 } as const
 
 export type PointTransactionScalarFieldEnum = (typeof PointTransactionScalarFieldEnum)[keyof typeof PointTransactionScalarFieldEnum]
+
+
+export const NewsletterSubscriberScalarFieldEnum = {
+  id: 'id',
+  email: 'email',
+  name: 'name',
+  isActive: 'isActive',
+  createdAt: 'createdAt'
+} as const
+
+export type NewsletterSubscriberScalarFieldEnum = (typeof NewsletterSubscriberScalarFieldEnum)[keyof typeof NewsletterSubscriberScalarFieldEnum]
 
 
 export const SortOrder = {

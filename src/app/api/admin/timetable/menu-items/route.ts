@@ -1,8 +1,14 @@
 import { prisma } from "@/lib/db";
+import { getSession } from "@/lib/auth";
 import { NextResponse } from "next/server";
 
 // GET /api/admin/timetable/menu-items — returns all menu items for the admin picker
 export async function GET() {
+    const session = await getSession();
+    if (!session) {
+        return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    }
+
     const items = await prisma.menuItem.findMany({
         where: { isAvailable: true },
         select: {

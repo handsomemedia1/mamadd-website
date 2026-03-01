@@ -1,9 +1,19 @@
 import { compare, hash } from "bcryptjs";
+import jwt from "jsonwebtoken";
 import { cookies } from "next/headers";
 
 const SALT_ROUNDS = 12;
 const SESSION_COOKIE = "mama-dds-session";
-const SESSION_SECRET = process.env.SESSION_SECRET || "mama-dds-secret-key-change-in-production";
+
+function getSecret(): string {
+    const secret = process.env.SESSION_SECRET;
+    if (!secret || secret.includes("change-in-production") || secret.includes("change-this")) {
+        throw new Error(
+            "SESSION_SECRET environment variable is not set or is using a default value. Set a strong, unique secret in your .env / Vercel environment variables."
+        );
+    }
+    return secret;
+}
 
 export async function hashPassword(password: string): Promise<string> {
     return hash(password, SALT_ROUNDS);
@@ -15,13 +25,9 @@ export async function verifyPassword(password: string, hashedPassword: string): 
 
 export async function createSession(userId: string): Promise<void> {
     const cookieStore = await cookies();
-    // Simple session: store user ID encoded in base64
-    // In production, use JWT or encrypted session tokens
-    const sessionData = Buffer.from(
-        JSON.stringify({ userId, createdAt: Date.now() })
-    ).toString("base64");
+    const token = jwt.sign({ userId }, getSecret(), { expiresIn: "7d" });
 
-    cookieStore.set(SESSION_COOKIE, sessionData, {
+    cookieStore.set(SESSION_COOKIE, token, {
         httpOnly: true,
         secure: process.env.NODE_ENV === "production",
         sameSite: "lax",
@@ -37,17 +43,11 @@ export async function getSession(): Promise<{ userId: string } | null> {
     if (!session?.value) return null;
 
     try {
-        const data = JSON.parse(Buffer.from(session.value, "base64").toString());
-
-        // Check if session is expired (7 days)
-        const sevenDays = 7 * 24 * 60 * 60 * 1000;
-        if (Date.now() - data.createdAt > sevenDays) {
-            await destroySession();
-            return null;
-        }
-
-        return { userId: data.userId };
+        const decoded = jwt.verify(session.value, getSecret()) as { userId: string };
+        return { userId: decoded.userId };
     } catch {
+        // Token invalid or expired — destroy it
+        await destroySession();
         return null;
     }
 }

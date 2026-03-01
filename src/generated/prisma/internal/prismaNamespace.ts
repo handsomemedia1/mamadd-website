@@ -387,6 +387,8 @@ export const ModelName = {
   AdminUser: 'AdminUser',
   Category: 'Category',
   MenuItem: 'MenuItem',
+  FoodTimetable: 'FoodTimetable',
+  TimetableItem: 'TimetableItem',
   BlogPost: 'BlogPost',
   Setting: 'Setting',
   LegalPage: 'LegalPage',
@@ -394,7 +396,8 @@ export const ModelName = {
   Customer: 'Customer',
   AvailabilitySlot: 'AvailabilitySlot',
   Booking: 'Booking',
-  PointTransaction: 'PointTransaction'
+  PointTransaction: 'PointTransaction',
+  NewsletterSubscriber: 'NewsletterSubscriber'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -410,7 +413,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "adminUser" | "category" | "menuItem" | "blogPost" | "setting" | "legalPage" | "paymentMethod" | "customer" | "availabilitySlot" | "booking" | "pointTransaction"
+    modelProps: "adminUser" | "category" | "menuItem" | "foodTimetable" | "timetableItem" | "blogPost" | "setting" | "legalPage" | "paymentMethod" | "customer" | "availabilitySlot" | "booking" | "pointTransaction" | "newsletterSubscriber"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -633,6 +636,154 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         count: {
           args: Prisma.MenuItemCountArgs<ExtArgs>
           result: runtime.Types.Utils.Optional<Prisma.MenuItemCountAggregateOutputType> | number
+        }
+      }
+    }
+    FoodTimetable: {
+      payload: Prisma.$FoodTimetablePayload<ExtArgs>
+      fields: Prisma.FoodTimetableFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.FoodTimetableFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$FoodTimetablePayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.FoodTimetableFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$FoodTimetablePayload>
+        }
+        findFirst: {
+          args: Prisma.FoodTimetableFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$FoodTimetablePayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.FoodTimetableFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$FoodTimetablePayload>
+        }
+        findMany: {
+          args: Prisma.FoodTimetableFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$FoodTimetablePayload>[]
+        }
+        create: {
+          args: Prisma.FoodTimetableCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$FoodTimetablePayload>
+        }
+        createMany: {
+          args: Prisma.FoodTimetableCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.FoodTimetableCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$FoodTimetablePayload>[]
+        }
+        delete: {
+          args: Prisma.FoodTimetableDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$FoodTimetablePayload>
+        }
+        update: {
+          args: Prisma.FoodTimetableUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$FoodTimetablePayload>
+        }
+        deleteMany: {
+          args: Prisma.FoodTimetableDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.FoodTimetableUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.FoodTimetableUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$FoodTimetablePayload>[]
+        }
+        upsert: {
+          args: Prisma.FoodTimetableUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$FoodTimetablePayload>
+        }
+        aggregate: {
+          args: Prisma.FoodTimetableAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateFoodTimetable>
+        }
+        groupBy: {
+          args: Prisma.FoodTimetableGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.FoodTimetableGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.FoodTimetableCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.FoodTimetableCountAggregateOutputType> | number
+        }
+      }
+    }
+    TimetableItem: {
+      payload: Prisma.$TimetableItemPayload<ExtArgs>
+      fields: Prisma.TimetableItemFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.TimetableItemFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TimetableItemPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.TimetableItemFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TimetableItemPayload>
+        }
+        findFirst: {
+          args: Prisma.TimetableItemFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TimetableItemPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.TimetableItemFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TimetableItemPayload>
+        }
+        findMany: {
+          args: Prisma.TimetableItemFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TimetableItemPayload>[]
+        }
+        create: {
+          args: Prisma.TimetableItemCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TimetableItemPayload>
+        }
+        createMany: {
+          args: Prisma.TimetableItemCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.TimetableItemCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TimetableItemPayload>[]
+        }
+        delete: {
+          args: Prisma.TimetableItemDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TimetableItemPayload>
+        }
+        update: {
+          args: Prisma.TimetableItemUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TimetableItemPayload>
+        }
+        deleteMany: {
+          args: Prisma.TimetableItemDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.TimetableItemUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.TimetableItemUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TimetableItemPayload>[]
+        }
+        upsert: {
+          args: Prisma.TimetableItemUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TimetableItemPayload>
+        }
+        aggregate: {
+          args: Prisma.TimetableItemAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateTimetableItem>
+        }
+        groupBy: {
+          args: Prisma.TimetableItemGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.TimetableItemGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.TimetableItemCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.TimetableItemCountAggregateOutputType> | number
         }
       }
     }
@@ -1228,6 +1379,80 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    NewsletterSubscriber: {
+      payload: Prisma.$NewsletterSubscriberPayload<ExtArgs>
+      fields: Prisma.NewsletterSubscriberFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.NewsletterSubscriberFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$NewsletterSubscriberPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.NewsletterSubscriberFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$NewsletterSubscriberPayload>
+        }
+        findFirst: {
+          args: Prisma.NewsletterSubscriberFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$NewsletterSubscriberPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.NewsletterSubscriberFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$NewsletterSubscriberPayload>
+        }
+        findMany: {
+          args: Prisma.NewsletterSubscriberFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$NewsletterSubscriberPayload>[]
+        }
+        create: {
+          args: Prisma.NewsletterSubscriberCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$NewsletterSubscriberPayload>
+        }
+        createMany: {
+          args: Prisma.NewsletterSubscriberCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.NewsletterSubscriberCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$NewsletterSubscriberPayload>[]
+        }
+        delete: {
+          args: Prisma.NewsletterSubscriberDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$NewsletterSubscriberPayload>
+        }
+        update: {
+          args: Prisma.NewsletterSubscriberUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$NewsletterSubscriberPayload>
+        }
+        deleteMany: {
+          args: Prisma.NewsletterSubscriberDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.NewsletterSubscriberUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.NewsletterSubscriberUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$NewsletterSubscriberPayload>[]
+        }
+        upsert: {
+          args: Prisma.NewsletterSubscriberUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$NewsletterSubscriberPayload>
+        }
+        aggregate: {
+          args: Prisma.NewsletterSubscriberAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateNewsletterSubscriber>
+        }
+        groupBy: {
+          args: Prisma.NewsletterSubscriberGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.NewsletterSubscriberGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.NewsletterSubscriberCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.NewsletterSubscriberCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -1302,6 +1527,30 @@ export const MenuItemScalarFieldEnum = {
 } as const
 
 export type MenuItemScalarFieldEnum = (typeof MenuItemScalarFieldEnum)[keyof typeof MenuItemScalarFieldEnum]
+
+
+export const FoodTimetableScalarFieldEnum = {
+  id: 'id',
+  date: 'date',
+  dayOfWeek: 'dayOfWeek',
+  note: 'note',
+  isPublished: 'isPublished',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type FoodTimetableScalarFieldEnum = (typeof FoodTimetableScalarFieldEnum)[keyof typeof FoodTimetableScalarFieldEnum]
+
+
+export const TimetableItemScalarFieldEnum = {
+  id: 'id',
+  timetableId: 'timetableId',
+  menuItemId: 'menuItemId',
+  specialPrice: 'specialPrice',
+  note: 'note'
+} as const
+
+export type TimetableItemScalarFieldEnum = (typeof TimetableItemScalarFieldEnum)[keyof typeof TimetableItemScalarFieldEnum]
 
 
 export const BlogPostScalarFieldEnum = {
@@ -1413,6 +1662,17 @@ export const PointTransactionScalarFieldEnum = {
 } as const
 
 export type PointTransactionScalarFieldEnum = (typeof PointTransactionScalarFieldEnum)[keyof typeof PointTransactionScalarFieldEnum]
+
+
+export const NewsletterSubscriberScalarFieldEnum = {
+  id: 'id',
+  email: 'email',
+  name: 'name',
+  isActive: 'isActive',
+  createdAt: 'createdAt'
+} as const
+
+export type NewsletterSubscriberScalarFieldEnum = (typeof NewsletterSubscriberScalarFieldEnum)[keyof typeof NewsletterSubscriberScalarFieldEnum]
 
 
 export const SortOrder = {
@@ -1605,6 +1865,8 @@ export type GlobalOmitConfig = {
   adminUser?: Prisma.AdminUserOmit
   category?: Prisma.CategoryOmit
   menuItem?: Prisma.MenuItemOmit
+  foodTimetable?: Prisma.FoodTimetableOmit
+  timetableItem?: Prisma.TimetableItemOmit
   blogPost?: Prisma.BlogPostOmit
   setting?: Prisma.SettingOmit
   legalPage?: Prisma.LegalPageOmit
@@ -1613,6 +1875,7 @@ export type GlobalOmitConfig = {
   availabilitySlot?: Prisma.AvailabilitySlotOmit
   booking?: Prisma.BookingOmit
   pointTransaction?: Prisma.PointTransactionOmit
+  newsletterSubscriber?: Prisma.NewsletterSubscriberOmit
 }
 
 /* Types for Logging */

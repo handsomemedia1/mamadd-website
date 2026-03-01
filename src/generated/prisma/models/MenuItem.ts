@@ -257,6 +257,7 @@ export type MenuItemWhereInput = {
   createdAt?: Prisma.DateTimeFilter<"MenuItem"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"MenuItem"> | Date | string
   category?: Prisma.XOR<Prisma.CategoryScalarRelationFilter, Prisma.CategoryWhereInput>
+  timetableItems?: Prisma.TimetableItemListRelationFilter
 }
 
 export type MenuItemOrderByWithRelationInput = {
@@ -271,6 +272,7 @@ export type MenuItemOrderByWithRelationInput = {
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   category?: Prisma.CategoryOrderByWithRelationInput
+  timetableItems?: Prisma.TimetableItemOrderByRelationAggregateInput
 }
 
 export type MenuItemWhereUniqueInput = Prisma.AtLeast<{
@@ -288,6 +290,7 @@ export type MenuItemWhereUniqueInput = Prisma.AtLeast<{
   createdAt?: Prisma.DateTimeFilter<"MenuItem"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"MenuItem"> | Date | string
   category?: Prisma.XOR<Prisma.CategoryScalarRelationFilter, Prisma.CategoryWhereInput>
+  timetableItems?: Prisma.TimetableItemListRelationFilter
 }, "id">
 
 export type MenuItemOrderByWithAggregationInput = {
@@ -335,6 +338,7 @@ export type MenuItemCreateInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   category: Prisma.CategoryCreateNestedOneWithoutMenuItemsInput
+  timetableItems?: Prisma.TimetableItemCreateNestedManyWithoutMenuItemInput
 }
 
 export type MenuItemUncheckedCreateInput = {
@@ -348,6 +352,7 @@ export type MenuItemUncheckedCreateInput = {
   categoryId: string
   createdAt?: Date | string
   updatedAt?: Date | string
+  timetableItems?: Prisma.TimetableItemUncheckedCreateNestedManyWithoutMenuItemInput
 }
 
 export type MenuItemUpdateInput = {
@@ -361,6 +366,7 @@ export type MenuItemUpdateInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   category?: Prisma.CategoryUpdateOneRequiredWithoutMenuItemsNestedInput
+  timetableItems?: Prisma.TimetableItemUpdateManyWithoutMenuItemNestedInput
 }
 
 export type MenuItemUncheckedUpdateInput = {
@@ -374,6 +380,7 @@ export type MenuItemUncheckedUpdateInput = {
   categoryId?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  timetableItems?: Prisma.TimetableItemUncheckedUpdateManyWithoutMenuItemNestedInput
 }
 
 export type MenuItemCreateManyInput = {
@@ -471,6 +478,11 @@ export type MenuItemSumOrderByAggregateInput = {
   price?: Prisma.SortOrder
 }
 
+export type MenuItemScalarRelationFilter = {
+  is?: Prisma.MenuItemWhereInput
+  isNot?: Prisma.MenuItemWhereInput
+}
+
 export type MenuItemCreateNestedManyWithoutCategoryInput = {
   create?: Prisma.XOR<Prisma.MenuItemCreateWithoutCategoryInput, Prisma.MenuItemUncheckedCreateWithoutCategoryInput> | Prisma.MenuItemCreateWithoutCategoryInput[] | Prisma.MenuItemUncheckedCreateWithoutCategoryInput[]
   connectOrCreate?: Prisma.MenuItemCreateOrConnectWithoutCategoryInput | Prisma.MenuItemCreateOrConnectWithoutCategoryInput[]
@@ -529,6 +541,20 @@ export type BoolFieldUpdateOperationsInput = {
   set?: boolean
 }
 
+export type MenuItemCreateNestedOneWithoutTimetableItemsInput = {
+  create?: Prisma.XOR<Prisma.MenuItemCreateWithoutTimetableItemsInput, Prisma.MenuItemUncheckedCreateWithoutTimetableItemsInput>
+  connectOrCreate?: Prisma.MenuItemCreateOrConnectWithoutTimetableItemsInput
+  connect?: Prisma.MenuItemWhereUniqueInput
+}
+
+export type MenuItemUpdateOneRequiredWithoutTimetableItemsNestedInput = {
+  create?: Prisma.XOR<Prisma.MenuItemCreateWithoutTimetableItemsInput, Prisma.MenuItemUncheckedCreateWithoutTimetableItemsInput>
+  connectOrCreate?: Prisma.MenuItemCreateOrConnectWithoutTimetableItemsInput
+  upsert?: Prisma.MenuItemUpsertWithoutTimetableItemsInput
+  connect?: Prisma.MenuItemWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.MenuItemUpdateToOneWithWhereWithoutTimetableItemsInput, Prisma.MenuItemUpdateWithoutTimetableItemsInput>, Prisma.MenuItemUncheckedUpdateWithoutTimetableItemsInput>
+}
+
 export type MenuItemCreateWithoutCategoryInput = {
   id?: string
   name: string
@@ -539,6 +565,7 @@ export type MenuItemCreateWithoutCategoryInput = {
   isFeatured?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
+  timetableItems?: Prisma.TimetableItemCreateNestedManyWithoutMenuItemInput
 }
 
 export type MenuItemUncheckedCreateWithoutCategoryInput = {
@@ -551,6 +578,7 @@ export type MenuItemUncheckedCreateWithoutCategoryInput = {
   isFeatured?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
+  timetableItems?: Prisma.TimetableItemUncheckedCreateNestedManyWithoutMenuItemInput
 }
 
 export type MenuItemCreateOrConnectWithoutCategoryInput = {
@@ -595,6 +623,74 @@ export type MenuItemScalarWhereInput = {
   updatedAt?: Prisma.DateTimeFilter<"MenuItem"> | Date | string
 }
 
+export type MenuItemCreateWithoutTimetableItemsInput = {
+  id?: string
+  name: string
+  description?: string | null
+  price: number
+  imageUrl?: string | null
+  isAvailable?: boolean
+  isFeatured?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  category: Prisma.CategoryCreateNestedOneWithoutMenuItemsInput
+}
+
+export type MenuItemUncheckedCreateWithoutTimetableItemsInput = {
+  id?: string
+  name: string
+  description?: string | null
+  price: number
+  imageUrl?: string | null
+  isAvailable?: boolean
+  isFeatured?: boolean
+  categoryId: string
+  createdAt?: Date | string
+  updatedAt?: Date | string
+}
+
+export type MenuItemCreateOrConnectWithoutTimetableItemsInput = {
+  where: Prisma.MenuItemWhereUniqueInput
+  create: Prisma.XOR<Prisma.MenuItemCreateWithoutTimetableItemsInput, Prisma.MenuItemUncheckedCreateWithoutTimetableItemsInput>
+}
+
+export type MenuItemUpsertWithoutTimetableItemsInput = {
+  update: Prisma.XOR<Prisma.MenuItemUpdateWithoutTimetableItemsInput, Prisma.MenuItemUncheckedUpdateWithoutTimetableItemsInput>
+  create: Prisma.XOR<Prisma.MenuItemCreateWithoutTimetableItemsInput, Prisma.MenuItemUncheckedCreateWithoutTimetableItemsInput>
+  where?: Prisma.MenuItemWhereInput
+}
+
+export type MenuItemUpdateToOneWithWhereWithoutTimetableItemsInput = {
+  where?: Prisma.MenuItemWhereInput
+  data: Prisma.XOR<Prisma.MenuItemUpdateWithoutTimetableItemsInput, Prisma.MenuItemUncheckedUpdateWithoutTimetableItemsInput>
+}
+
+export type MenuItemUpdateWithoutTimetableItemsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  price?: Prisma.FloatFieldUpdateOperationsInput | number
+  imageUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isAvailable?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isFeatured?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  category?: Prisma.CategoryUpdateOneRequiredWithoutMenuItemsNestedInput
+}
+
+export type MenuItemUncheckedUpdateWithoutTimetableItemsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  price?: Prisma.FloatFieldUpdateOperationsInput | number
+  imageUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isAvailable?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isFeatured?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  categoryId?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+}
+
 export type MenuItemCreateManyCategoryInput = {
   id?: string
   name: string
@@ -617,6 +713,7 @@ export type MenuItemUpdateWithoutCategoryInput = {
   isFeatured?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  timetableItems?: Prisma.TimetableItemUpdateManyWithoutMenuItemNestedInput
 }
 
 export type MenuItemUncheckedUpdateWithoutCategoryInput = {
@@ -629,6 +726,7 @@ export type MenuItemUncheckedUpdateWithoutCategoryInput = {
   isFeatured?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  timetableItems?: Prisma.TimetableItemUncheckedUpdateManyWithoutMenuItemNestedInput
 }
 
 export type MenuItemUncheckedUpdateManyWithoutCategoryInput = {
@@ -644,6 +742,35 @@ export type MenuItemUncheckedUpdateManyWithoutCategoryInput = {
 }
 
 
+/**
+ * Count Type MenuItemCountOutputType
+ */
+
+export type MenuItemCountOutputType = {
+  timetableItems: number
+}
+
+export type MenuItemCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  timetableItems?: boolean | MenuItemCountOutputTypeCountTimetableItemsArgs
+}
+
+/**
+ * MenuItemCountOutputType without action
+ */
+export type MenuItemCountOutputTypeDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the MenuItemCountOutputType
+   */
+  select?: Prisma.MenuItemCountOutputTypeSelect<ExtArgs> | null
+}
+
+/**
+ * MenuItemCountOutputType without action
+ */
+export type MenuItemCountOutputTypeCountTimetableItemsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.TimetableItemWhereInput
+}
+
 
 export type MenuItemSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -657,6 +784,8 @@ export type MenuItemSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs
   createdAt?: boolean
   updatedAt?: boolean
   category?: boolean | Prisma.CategoryDefaultArgs<ExtArgs>
+  timetableItems?: boolean | Prisma.MenuItem$timetableItemsArgs<ExtArgs>
+  _count?: boolean | Prisma.MenuItemCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["menuItem"]>
 
 export type MenuItemSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -703,6 +832,8 @@ export type MenuItemSelectScalar = {
 export type MenuItemOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "description" | "price" | "imageUrl" | "isAvailable" | "isFeatured" | "categoryId" | "createdAt" | "updatedAt", ExtArgs["result"]["menuItem"]>
 export type MenuItemInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   category?: boolean | Prisma.CategoryDefaultArgs<ExtArgs>
+  timetableItems?: boolean | Prisma.MenuItem$timetableItemsArgs<ExtArgs>
+  _count?: boolean | Prisma.MenuItemCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type MenuItemIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   category?: boolean | Prisma.CategoryDefaultArgs<ExtArgs>
@@ -715,6 +846,7 @@ export type $MenuItemPayload<ExtArgs extends runtime.Types.Extensions.InternalAr
   name: "MenuItem"
   objects: {
     category: Prisma.$CategoryPayload<ExtArgs>
+    timetableItems: Prisma.$TimetableItemPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -1122,6 +1254,7 @@ readonly fields: MenuItemFieldRefs;
 export interface Prisma__MenuItemClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
   category<T extends Prisma.CategoryDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.CategoryDefaultArgs<ExtArgs>>): Prisma.Prisma__CategoryClient<runtime.Types.Result.GetResult<Prisma.$CategoryPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+  timetableItems<T extends Prisma.MenuItem$timetableItemsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.MenuItem$timetableItemsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$TimetableItemPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1554,6 +1687,30 @@ export type MenuItemDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.Inte
    * Limit how many MenuItems to delete.
    */
   limit?: number
+}
+
+/**
+ * MenuItem.timetableItems
+ */
+export type MenuItem$timetableItemsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the TimetableItem
+   */
+  select?: Prisma.TimetableItemSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the TimetableItem
+   */
+  omit?: Prisma.TimetableItemOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.TimetableItemInclude<ExtArgs> | null
+  where?: Prisma.TimetableItemWhereInput
+  orderBy?: Prisma.TimetableItemOrderByWithRelationInput | Prisma.TimetableItemOrderByWithRelationInput[]
+  cursor?: Prisma.TimetableItemWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.TimetableItemScalarFieldEnum | Prisma.TimetableItemScalarFieldEnum[]
 }
 
 /**

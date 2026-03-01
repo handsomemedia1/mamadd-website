@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import jwt from "jsonwebtoken";
 
 export function middleware(request: NextRequest) {
     const { pathname } = request.nextUrl;
@@ -13,15 +14,21 @@ export function middleware(request: NextRequest) {
             return NextResponse.redirect(loginUrl);
         }
 
-        // Validate the session cookie (basic check)
+        // Verify JWT token
         try {
-            const data = JSON.parse(Buffer.from(session.value, "base64").toString());
-            const sevenDays = 7 * 24 * 60 * 60 * 1000;
-            if (!data.userId || Date.now() - data.createdAt > sevenDays) {
+            const secret = process.env.SESSION_SECRET;
+            if (!secret) {
+                const loginUrl = new URL("/admin/login", request.url);
+                return NextResponse.redirect(loginUrl);
+            }
+
+            const decoded = jwt.verify(session.value, secret) as { userId: string };
+            if (!decoded.userId) {
                 const loginUrl = new URL("/admin/login", request.url);
                 return NextResponse.redirect(loginUrl);
             }
         } catch {
+            // Invalid or expired token
             const loginUrl = new URL("/admin/login", request.url);
             return NextResponse.redirect(loginUrl);
         }
