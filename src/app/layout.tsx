@@ -7,6 +7,7 @@ import CartDrawer, { FloatingCartButton } from "@/components/CartDrawer";
 import { CartProvider } from "@/lib/cart";
 import { LanguageProvider } from "@/lib/i18n/LanguageContext";
 import NewsletterPopup from "@/components/NewsletterPopup";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -103,6 +104,7 @@ export default function RootLayout({
             <NewsletterPopup />
           </CartProvider>
         </LanguageProvider>
+        <SpeedInsights />
       </body>
     </html>
   );
