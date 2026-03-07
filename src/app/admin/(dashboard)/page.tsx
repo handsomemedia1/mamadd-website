@@ -1,38 +1,37 @@
 import { prisma } from "@/lib/db";
 import { UtensilsCrossed, FileText, Eye } from "lucide-react";
-import { cookies } from "next/headers";
-import { redirect } from "next/navigation";
-import jwt from "jsonwebtoken";
 
 export const dynamic = "force-dynamic";
 
-async function requireAuth() {
-    const cookieStore = await cookies();
-    const session = cookieStore.get("mama-dds-session");
-
-    if (!session?.value) {
-        redirect("/admin/login");
-    }
-
+async function getStats() {
     try {
-        const secret = process.env.SESSION_SECRET;
-        if (!secret) return redirect("/admin/login");
-        jwt.verify(session.value, secret);
+        const [menuItemCount, categoryCount, blogCount, publishedBlogCount] =
+            await Promise.all([
+                prisma.menuItem.count(),
+                prisma.category.count(),
+                prisma.blogPost.count(),
+                prisma.blogPost.count({ where: { published: true } }),
+            ]);
+        return { menuItemCount, categoryCount, blogCount, publishedBlogCount };
     } catch {
-        redirect("/admin/login");
+        // Retry once on cold-start / connection drop
+        try {
+            const [menuItemCount, categoryCount, blogCount, publishedBlogCount] =
+                await Promise.all([
+                    prisma.menuItem.count(),
+                    prisma.category.count(),
+                    prisma.blogPost.count(),
+                    prisma.blogPost.count({ where: { published: true } }),
+                ]);
+            return { menuItemCount, categoryCount, blogCount, publishedBlogCount };
+        } catch {
+            return { menuItemCount: 0, categoryCount: 0, blogCount: 0, publishedBlogCount: 0 };
+        }
     }
 }
 
 export default async function AdminDashboardPage() {
-    await requireAuth();
-
-    const [menuItemCount, categoryCount, blogCount, publishedBlogCount] =
-        await Promise.all([
-            prisma.menuItem.count(),
-            prisma.category.count(),
-            prisma.blogPost.count(),
-            prisma.blogPost.count({ where: { published: true } }),
-        ]);
+    const { menuItemCount, categoryCount, blogCount, publishedBlogCount } = await getStats();
 
     const stats = [
         {

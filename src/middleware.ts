@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
-import jwt from "jsonwebtoken";
+import { jwtVerify } from "jose";
 
-export function middleware(request: NextRequest) {
+export async function middleware(request: NextRequest) {
     const { pathname } = request.nextUrl;
 
     // Only protect /admin routes (except login)
@@ -22,8 +22,11 @@ export function middleware(request: NextRequest) {
                 return NextResponse.redirect(loginUrl);
             }
 
-            const decoded = jwt.verify(session.value, secret) as { userId: string };
-            if (!decoded.userId) {
+            const { payload } = await jwtVerify(
+                session.value,
+                new TextEncoder().encode(secret)
+            );
+            if (!payload.userId) {
                 const loginUrl = new URL("/admin/login", request.url);
                 return NextResponse.redirect(loginUrl);
             }
@@ -40,3 +43,4 @@ export function middleware(request: NextRequest) {
 export const config = {
     matcher: ["/admin/:path*"],
 };
+
