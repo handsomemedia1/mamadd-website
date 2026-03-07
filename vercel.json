@@ -3,11 +3,13 @@
   "buildCommand": "npx prisma generate && next build",
   "outputDirectory": ".next",
   "installCommand": "npm install",
-  "regions": ["iad1"],
+  "regions": [
+    "iad1"
+  ],
   "crons": [
     {
       "path": "/api/ping",
-      "schedule": "*/4 * * * *"
+      "schedule": "0 8 * * *"
     }
   ],
   "headers": [
