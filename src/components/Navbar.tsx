@@ -26,7 +26,7 @@ export default function Navbar() {
         <nav className="fixed top-0 left-0 right-0 z-50">
             <div
                 className="mx-4 mt-4 px-6 py-3 clay-card"
-                style={{ background: "rgba(255,255,255,0.95)", backdropFilter: "blur(12px)" }}
+                style={{ background: "rgba(13,13,13,0.85)", backdropFilter: "blur(16px)", border: "1px solid rgba(255,255,255,0.08)" }}
             >
                 <div className="max-w-7xl mx-auto flex items-center justify-between">
                     {/* Logo */}

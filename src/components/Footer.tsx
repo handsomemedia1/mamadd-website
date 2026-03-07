@@ -9,13 +9,13 @@ export default function Footer() {
     const { t } = useTranslation();
 
     return (
-        <footer className="relative mt-20" style={{ background: "var(--color-text)" }}>
+        <footer className="relative mt-20" style={{ background: "#111111" }}>
             {/* Wave top */}
             <div className="absolute -top-12 left-0 right-0 h-12 overflow-hidden">
                 <svg viewBox="0 0 1200 120" preserveAspectRatio="none" className="w-full h-full">
                     <path
                         d="M0,60 C200,100 400,20 600,60 C800,100 1000,20 1200,60 L1200,120 L0,120 Z"
-                        fill="var(--color-text)"
+                        fill="#111111"
                     />
                 </svg>
             </div>
@@ -24,7 +24,7 @@ export default function Footer() {
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
                     {/* Brand Column */}
                     <div>
-                        <Logo size="md" className="mb-4 invert brightness-200" />
+                        <Logo size="md" className="mb-4" />
                         <p className="text-sm leading-relaxed mt-4" style={{ color: "rgba(255,248,240,0.7)" }}>
                             {t("footer.brandDesc")}
                         </p>
@@ -166,7 +166,7 @@ export default function Footer() {
                         <a
                             href="mailto:ddoptimistic@gmail.com?subject=Order%20-%20Mama%20DD%27s"
                             className="clay-button text-xs px-5 py-2 inline-flex items-center gap-2"
-                            style={{ background: "white", color: "var(--color-text)", fontWeight: 600 }}
+                            style={{ background: "rgba(255,255,255,0.1)", color: "#F5F5F5", fontWeight: 600, border: "1px solid rgba(255,255,255,0.15)" }}
                         >
                             {t("footer.emailOrder")}
                         </a>

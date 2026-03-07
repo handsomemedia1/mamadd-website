@@ -42,7 +42,17 @@ export default function AboutContent() {
                         <div className="space-y-4 text-sm leading-relaxed" style={{ color: "var(--color-text-light)" }}>
                             <p>{t("about.storyP1")}</p>
                             <p>{t("about.storyP2")}</p>
-                            <p>{t("about.storyP3")}</p>
+                        </div>
+
+                        <h2
+                            className="text-2xl font-bold mt-8 mb-4"
+                            style={{ fontFamily: "var(--font-heading)" }}
+                        >
+                            {t("about.menuTitle1")}{" "}
+                            <span style={{ color: "var(--color-accent)" }}>{t("about.menuTitle2")}</span>
+                        </h2>
+                        <div className="space-y-4 text-sm leading-relaxed" style={{ color: "var(--color-text-light)" }}>
+                            <p>{t("about.menuP1")}</p>
                         </div>
                     </div>
                     <div className="md:col-span-2 flex justify-center">
@@ -66,8 +76,8 @@ export default function AboutContent() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
                 {[
                     { emoji: "🍲", title: t("about.val1Title"), desc: t("about.val1Desc") },
-                    { emoji: "❤️", title: t("about.val2Title"), desc: t("about.val2Desc") },
-                    { emoji: "🌍", title: t("about.val3Title"), desc: t("about.val3Desc") },
+                    { emoji: "🛵", title: t("about.val2Title"), desc: t("about.val2Desc") },
+                    { emoji: "❤️", title: t("about.val3Title"), desc: t("about.val3Desc") },
                 ].map((item, i) => (
                     <div key={item.title} className={`clay-card p-6 text-center animate-fade-in-up stagger-${i + 2}`}>
                         <div className="text-4xl mb-4">{item.emoji}</div>
@@ -79,6 +89,13 @@ export default function AboutContent() {
                         </p>
                     </div>
                 ))}
+            </div>
+
+            {/* Footer Text */}
+            <div className="clay-card-warm p-8 md:p-10 text-center mb-10 animate-fade-in-up stagger-5">
+                <p className="text-lg leading-relaxed font-medium" style={{ color: "var(--color-text-light)", fontFamily: "var(--font-heading)" }}>
+                    "{t("about.footerText")}"
+                </p>
             </div>
 
             {/* CTA */}

@@ -19,7 +19,7 @@ export default function Logo({ className = "", size = "md", showText = false }: 
     return (
         <div className={`flex items-center ${className}`}>
             <Image
-                src="/logo.png"
+                src="/new-logo.png"
                 alt="Mama DD's African Kitchen"
                 width={width}
                 height={height}

@@ -18,18 +18,15 @@ const sidebarLinks = [
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
     const pathname = usePathname();
 
-    // Don't wrap login page
-    if (pathname === "/admin/login") return <>{children}</>;
-
     return (
         <div className="flex min-h-screen" style={{ background: "var(--color-background)" }}>
             {/* Sidebar */}
             <aside
                 className="fixed left-0 top-0 bottom-0 w-64 p-5 flex flex-col z-40 overflow-y-auto"
-                style={{ background: "var(--color-text)" }}
+                style={{ background: "#111111" }}
             >
                 <div className="mb-8">
-                    <Logo size="sm" className="invert brightness-200" />
+                    <Logo size="sm" />
                     <p className="text-xs mt-2" style={{ color: "rgba(255,248,240,0.4)" }}>
                         Admin Panel
                     </p>

@@ -89,24 +89,26 @@ export const translations: Record<Locale, Record<string, string>> = {
         "about.title": "About Mama DD's",
         "about.subtitle":
             "A cultural gateway to West African flavors, right here in Enschede",
-        "about.storyTitle1": "From Nigeria to",
-        "about.storyTitle2": "Enschede",
+        "about.storyTitle1": "About",
+        "about.storyTitle2": "Mama DD's African Kitchen",
         "about.storyP1":
-            "Mama DD's African Kitchen was born from a simple desire — to share the authentic, homemade flavors of West Africa with the people of Enschede. Every dish is prepared with traditional recipes passed down through generations, using the same techniques and ingredients that make African home cooking unforgettable.",
+            "Mama DD's is a home-cooked West African kitchen based in Enschede, specialising in traditional Nigerian and other African cuisine. Behind every dish is a skilled and experienced chef whose passion for African flavours ensures each meal is crafted with authenticity and care.",
         "about.storyP2":
-            "What started as cooking for friends and family quickly grew into something bigger. People kept coming back for more, telling their friends, and soon Mama DD's became the go-to spot for anyone craving real African food in the Netherlands.",
-        "about.storyP3":
-            "When you eat with us, you're not just having a meal — you're experiencing a piece of home. That's what Mama DD's is all about.",
-        "about.founderRole": "Head Chef & Founder",
-        "about.val1Title": "Authentic Recipes",
+            "What started as a simple desire to share the rich tastes of West Africa with friends and family quickly grew into something much larger. Today, Mama DD's has become a go-to destination for anyone craving genuine African food in the Netherlands.",
+        "about.menuTitle1": "The",
+        "about.menuTitle2": "Menu",
+        "about.menuP1":
+            "Our menu features a vibrant selection of traditional staples, including Jollof rice, pounded yams, and various types of fufu, all served with richly flavoured soups like Ogbono and Egusi. Guests can choose from a range of combos and vegetarian options, often accompanied by beloved sides such as fried plantains or spicy asun meat. To complete the experience, we offer soft drinks and traditional non-alcoholic malt beverages that are cherished across African cultures.",
+        "about.val1Title": "Generous Portions",
         "about.val1Desc":
-            "Traditional West African recipes passed down through generations. No shortcuts, no fusion — just pure homemade flavor.",
-        "about.val2Title": "Made with Love",
+            "Our customers frequently praise Mama DD's for its generous portions and perfectly balanced spices.",
+        "about.val2Title": "Reliable Delivery",
         "about.val2Desc":
-            "Every dish is prepared with the same care and attention as if we were cooking for our own family. Because that's exactly what you are.",
-        "about.val3Title": "Cultural Connection",
+            "Enjoy Mama DD's from the comfort of your home with our reliable delivery service.",
+        "about.val3Title": "More Than Just Meals",
         "about.val3Desc":
-            "Food is more than fuel — it's a bridge between cultures. We bring the warmth of Africa to everyone in Enschede.",
+            "In addition to individual meals, we offer catering services, referral programs, and subscription plans for our regular customers.",
+        "about.footerText": "At Mama DD's, every dish is prepared using time-honoured recipes passed down through generations. When you dine with us, you're not just enjoying a meal, you're experiencing the warmth and taste of home.",
         "about.ctaTitle": "Come Taste the Difference",
         "about.ctaDesc":
             "Visit us at Waalstraat 134, Enschede — or order via WhatsApp and we'll have your meal ready for pickup.",
@@ -294,24 +296,26 @@ export const translations: Record<Locale, Record<string, string>> = {
         "about.title": "Over Mama DD's",
         "about.subtitle":
             "Een culturele poort naar West-Afrikaanse smaken, hier in Enschede",
-        "about.storyTitle1": "Van Nigeria naar",
-        "about.storyTitle2": "Enschede",
+        "about.storyTitle1": "Over",
+        "about.storyTitle2": "Mama DD's African Kitchen",
         "about.storyP1":
-            "Mama DD's African Kitchen is ontstaan uit een eenvoudig verlangen — om de authentieke, huisgemaakte smaken van West-Afrika te delen met de mensen van Enschede. Elk gerecht wordt bereid met traditionele recepten die van generatie op generatie zijn doorgegeven.",
+            "Mama DD's is een huisgemaakte West-Afrikaanse keuken gevestigd in Enschede, gespecialiseerd in traditionele Nigeriaanse en andere Afrikaanse gerechten. Achter elk gerecht staat een bekwame en ervaren chef-kok wiens passie voor Afrikaanse smaken ervoor zorgt dat elke maaltijd met authenticiteit en zorg wordt bereid.",
         "about.storyP2":
-            "Wat begon als koken voor vrienden en familie groeide al snel uit tot iets groters. Mensen bleven terugkomen voor meer, vertelden het hun vrienden, en al snel werd Mama DD's dé plek voor iedereen die echt Afrikaans eten in Nederland zocht.",
-        "about.storyP3":
-            "Als je bij ons eet, heb je niet zomaar een maaltijd — je ervaart een stukje thuis. Dat is waar Mama DD's om draait.",
-        "about.founderRole": "Hoofdkok & Oprichter",
-        "about.val1Title": "Authentieke Recepten",
+            "Wat begon als een eenvoudig verlangen om de rijke smaken van West-Afrika te delen met vrienden en familie, groeide snel uit tot iets veel groters. Vandaag de dag is Mama DD's dé bestemming geworden voor iedereen die verlangt naar echt Afrikaans eten in Nederland.",
+        "about.menuTitle1": "Het",
+        "about.menuTitle2": "Menu",
+        "about.menuP1":
+            "Ons menu biedt een levendige selectie van traditionele gerechten, waaronder Jollof rijst, pounded yams en verschillende soorten fufu, allemaal geserveerd met rijk smakende soepen zoals Ogbono en Egusi. Gasten kunnen kiezen uit een reeks combo's en vegetarische opties, vaak vergezeld van geliefde bijgerechten zoals gebakken bakbanaan of pittig asun-vlees. Om de ervaring compleet te maken, bieden wij frisdranken en traditionele alcoholvrije moutdranken aan die overal in Afrikaanse culturen worden gekoesterd.",
+        "about.val1Title": "Ruime Porties",
         "about.val1Desc":
-            "Traditionele West-Afrikaanse recepten, van generatie op generatie doorgegeven. Geen shortcuts, geen fusion — gewoon pure huisgemaakte smaak.",
-        "about.val2Title": "Met Liefde Gemaakt",
+            "Onze klanten prijzen Mama DD's regelmatig om de gulle porties en perfect uitgebalanceerde kruiden.",
+        "about.val2Title": "Betrouwbare Bezorging",
         "about.val2Desc":
-            "Elk gerecht wordt bereid met dezelfde zorg en aandacht alsof we koken voor onze eigen familie. Want dat is precies wat je bent.",
-        "about.val3Title": "Culturele Verbinding",
+            "Geniet van Mama DD's vanuit het comfort van je eigen huis met onze betrouwbare bezorgservice.",
+        "about.val3Title": "Meer Dan Alleen Maaltijden",
         "about.val3Desc":
-            "Eten is meer dan brandstof — het is een brug tussen culturen. Wij brengen de warmte van Afrika naar iedereen in Enschede.",
+            "Naast individuele maaltijden bieden wij cateringservices, verwijzingsprogramma's en abonnementen aan voor onze vaste klanten.",
+        "about.footerText": "Bij Mama DD's wordt elk gerecht bereid volgens eeuwenoude recepten die van generatie op generatie zijn doorgegeven. Als je bij ons dineert, geniet je niet alleen van een maaltijd, je ervaart de warmte en smaak van thuis.",
         "about.ctaTitle": "Kom het Verschil Proeven",
         "about.ctaDesc":
             "Bezoek ons op Waalstraat 134, Enschede — of bestel via WhatsApp en we maken je maaltijd klaar voor afhalen.",

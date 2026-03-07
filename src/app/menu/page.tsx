@@ -11,15 +11,33 @@ export const metadata: Metadata = {
 export const dynamic = "force-dynamic";
 
 export default async function MenuPage() {
-    const categories = await prisma.category.findMany({
-        orderBy: { order: "asc" },
-        include: {
-            menuItems: {
-                where: { isAvailable: true },
-                orderBy: { name: "asc" },
+    let categories;
+    try {
+        categories = await prisma.category.findMany({
+            orderBy: { order: "asc" },
+            include: {
+                menuItems: {
+                    where: { isAvailable: true },
+                    orderBy: { name: "asc" },
+                },
             },
-        },
-    });
+        });
+    } catch {
+        // Retry once on cold-start / connection drop
+        try {
+            categories = await prisma.category.findMany({
+                orderBy: { order: "asc" },
+                include: {
+                    menuItems: {
+                        where: { isAvailable: true },
+                        orderBy: { name: "asc" },
+                    },
+                },
+            });
+        } catch {
+            categories = [];
+        }
+    }
 
     // Serialize for client component (Prisma Decimal → number)
     const serialized = categories.map((cat) => ({

@@ -5,33 +5,34 @@
    =================================== */
 
 @theme {
-  /* ── Primary: Rich Tomato-Coral — warm, appetizing, inviting ── */
-  --color-primary: #E8553A;
-  --color-primary-light: #F28066;
-  --color-primary-dark: #C43D22;
+  /* ── Primary: Vivid Red — matches logo text "MAMA DD's" ── */
+  --color-primary: #D32F2F;
+  --color-primary-light: #EF5350;
+  --color-primary-dark: #B71C1C;
 
-  /* ── Secondary: Warm Cocoa — grounding, premium ── */
-  --color-secondary: #7A4429;
+  /* ── Secondary: Rich Green — matches logo text "African kitchen" and stripes ── */
+  --color-secondary: #2E7D32;
 
-  /* ── Accent: Turmeric Gold — vibrant, warm, energetic ── */
-  --color-accent: #EFA630;
-  --color-accent-light: #FDDFA0;
+  /* ── Accent: Warm Orange/Yellow — matches logo bowl patterns ── */
+  --color-accent: #F57C00;
+  --color-accent-light: #FFB74D;
 
-  /* ── Backgrounds: Soft Parchment — light, airy, clean ── */
-  --color-background: #FFFBF5;
-  --color-surface: #FFFFFF;
-  --color-surface-warm: #FFF5EB;
-  --color-cream: #FFF0E0;
+  /* ── Backgrounds: Deep Black/Charcoal — matches the dark logo background ── */
+  --color-background: #0D0D0D;
+  --color-surface: #171717;
+  --color-surface-warm: #1F1B1B;
+  /* Subtle warm tint to black */
+  --color-cream: #262626;
 
-  /* ── Text: Deep Espresso — rich contrast, easy on eyes ── */
-  --color-text: #2A1A0D;
-  --color-text-light: #5E4839;
-  --color-text-muted: #948376;
+  /* ── Text: Light & Bright — contrast for dark background ── */
+  --color-text: #F5F5F5;
+  --color-text-light: #E0E0E0;
+  --color-text-muted: #9E9E9E;
 
   /* ── Utility ── */
-  --color-border: #F0E4D8;
-  --color-success: #3EBB5F;
-  --color-error: #E0392B;
+  --color-border: #333333;
+  --color-success: #4CAF50;
+  --color-error: #F44336;
   --color-whatsapp: #25D366;
   --color-whatsapp-dark: #128C7E;
 
@@ -55,19 +56,19 @@
   background: var(--color-surface);
   border-radius: var(--radius-clay);
   box-shadow:
-    8px 8px 16px rgba(45, 27, 14, 0.08),
-    -4px -4px 12px rgba(255, 255, 255, 0.9),
-    inset 2px 2px 4px rgba(255, 255, 255, 0.6),
-    inset -1px -1px 3px rgba(45, 27, 14, 0.05);
+    8px 8px 16px rgba(0, 0, 0, 0.4),
+    -4px -4px 12px rgba(40, 40, 40, 0.4),
+    inset 2px 2px 4px rgba(40, 40, 40, 0.2),
+    inset -1px -1px 3px rgba(0, 0, 0, 0.2);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .clay-card:hover {
   box-shadow:
-    10px 10px 20px rgba(45, 27, 14, 0.12),
-    -5px -5px 15px rgba(255, 255, 255, 0.95),
-    inset 2px 2px 4px rgba(255, 255, 255, 0.6),
-    inset -1px -1px 3px rgba(45, 27, 14, 0.05);
+    10px 10px 20px rgba(0, 0, 0, 0.5),
+    -5px -5px 15px rgba(50, 50, 50, 0.4),
+    inset 2px 2px 4px rgba(50, 50, 50, 0.2),
+    inset -1px -1px 3px rgba(0, 0, 0, 0.3);
   transform: translateY(-2px);
 }
 
@@ -75,10 +76,10 @@
   background: var(--color-surface-warm);
   border-radius: var(--radius-clay);
   box-shadow:
-    8px 8px 16px rgba(45, 27, 14, 0.08),
-    -4px -4px 12px rgba(255, 248, 240, 0.9),
-    inset 2px 2px 4px rgba(255, 255, 255, 0.5),
-    inset -1px -1px 3px rgba(45, 27, 14, 0.04);
+    8px 8px 16px rgba(0, 0, 0, 0.4),
+    -4px -4px 12px rgba(45, 40, 40, 0.4),
+    inset 2px 2px 4px rgba(45, 40, 40, 0.2),
+    inset -1px -1px 3px rgba(0, 0, 0, 0.3);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -92,25 +93,25 @@
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow:
-    4px 4px 10px rgba(45, 27, 14, 0.12),
-    -2px -2px 8px rgba(255, 255, 255, 0.8),
-    inset 1px 1px 2px rgba(255, 255, 255, 0.4);
+    4px 4px 10px rgba(0, 0, 0, 0.3),
+    -2px -2px 8px rgba(50, 50, 50, 0.3),
+    inset 1px 1px 2px rgba(50, 50, 50, 0.15);
 }
 
 .clay-button:hover {
   transform: translateY(-1px);
   box-shadow:
-    6px 6px 14px rgba(45, 27, 14, 0.16),
-    -3px -3px 10px rgba(255, 255, 255, 0.9),
-    inset 1px 1px 2px rgba(255, 255, 255, 0.4);
+    6px 6px 14px rgba(0, 0, 0, 0.4),
+    -3px -3px 10px rgba(50, 50, 50, 0.3),
+    inset 1px 1px 2px rgba(50, 50, 50, 0.15);
 }
 
 .clay-button:active {
   transform: translateY(1px);
   box-shadow:
-    2px 2px 6px rgba(45, 27, 14, 0.1),
-    -1px -1px 4px rgba(255, 255, 255, 0.7),
-    inset 2px 2px 4px rgba(45, 27, 14, 0.08);
+    2px 2px 6px rgba(0, 0, 0, 0.3),
+    -1px -1px 4px rgba(40, 40, 40, 0.3),
+    inset 2px 2px 4px rgba(0, 0, 0, 0.15);
 }
 
 .clay-button-primary {
@@ -130,8 +131,8 @@
 
 .clay-button-outline {
   background: var(--color-surface);
-  color: var(--color-primary);
-  border: 2px solid var(--color-primary-light);
+  color: var(--color-primary-light);
+  border: 2px solid rgba(211, 47, 47, 0.3);
 }
 
 .clay-input {
@@ -143,17 +144,17 @@
   background: var(--color-surface);
   color: var(--color-text);
   box-shadow:
-    inset 3px 3px 6px rgba(45, 27, 14, 0.06),
-    inset -2px -2px 4px rgba(255, 255, 255, 0.8);
+    inset 3px 3px 6px rgba(0, 0, 0, 0.3),
+    inset -2px -2px 4px rgba(40, 40, 40, 0.2);
   transition: all 0.3s ease;
 }
 
 .clay-input:focus {
   outline: none;
   box-shadow:
-    inset 3px 3px 6px rgba(45, 27, 14, 0.08),
-    inset -2px -2px 4px rgba(255, 255, 255, 0.8),
-    0 0 0 3px rgba(236, 110, 67, 0.15);
+    inset 3px 3px 6px rgba(0, 0, 0, 0.3),
+    inset -2px -2px 4px rgba(40, 40, 40, 0.2),
+    0 0 0 3px rgba(211, 47, 47, 0.2);
 }
 
 .clay-badge {
@@ -164,16 +165,16 @@
   font-size: 0.75rem;
   font-weight: 600;
   box-shadow:
-    2px 2px 6px rgba(45, 27, 14, 0.08),
-    inset 1px 1px 2px rgba(255, 255, 255, 0.5);
+    2px 2px 6px rgba(0, 0, 0, 0.3),
+    inset 1px 1px 2px rgba(40, 40, 40, 0.2);
 }
 
 .clay-section {
   background: var(--color-background);
   border-radius: var(--radius-clay-lg);
   box-shadow:
-    inset 4px 4px 8px rgba(45, 27, 14, 0.04),
-    inset -3px -3px 6px rgba(255, 255, 255, 0.7);
+    inset 4px 4px 8px rgba(0, 0, 0, 0.3),
+    inset -3px -3px 6px rgba(40, 40, 40, 0.2);
   padding: 2rem;
 }
 

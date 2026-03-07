@@ -1,9 +1,31 @@
 import { prisma } from "@/lib/db";
 import { UtensilsCrossed, FileText, Eye } from "lucide-react";
+import { cookies } from "next/headers";
+import { redirect } from "next/navigation";
+import jwt from "jsonwebtoken";
 
 export const dynamic = "force-dynamic";
 
+async function requireAuth() {
+    const cookieStore = await cookies();
+    const session = cookieStore.get("mama-dds-session");
+
+    if (!session?.value) {
+        redirect("/admin/login");
+    }
+
+    try {
+        const secret = process.env.SESSION_SECRET;
+        if (!secret) return redirect("/admin/login");
+        jwt.verify(session.value, secret);
+    } catch {
+        redirect("/admin/login");
+    }
+}
+
 export default async function AdminDashboardPage() {
+    await requireAuth();
+
     const [menuItemCount, categoryCount, blogCount, publishedBlogCount] =
         await Promise.all([
             prisma.menuItem.count(),

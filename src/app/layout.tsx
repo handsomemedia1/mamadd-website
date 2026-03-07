@@ -1,19 +1,13 @@
 import type { Metadata } from "next";
-import { Poppins } from "next/font/google";
+
 import "./globals.css";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-import CartDrawer, { FloatingCartButton } from "@/components/CartDrawer";
 import { CartProvider } from "@/lib/cart";
 import { LanguageProvider } from "@/lib/i18n/LanguageContext";
-import NewsletterPopup from "@/components/NewsletterPopup";
+import LayoutShell from "@/components/LayoutShell";
 
-const poppins = Poppins({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700", "800"],
+const poppins = {
   variable: "--font-poppins",
-  display: "swap",
-});
+};
 
 export const metadata: Metadata = {
   title: {
@@ -95,15 +89,11 @@ export default function RootLayout({
       <body className={`${poppins.variable} antialiased`}>
         <LanguageProvider>
           <CartProvider>
-            <Navbar />
-            <main className="min-h-screen pt-24">{children}</main>
-            <Footer />
-            <CartDrawer />
-            <FloatingCartButton />
-            <NewsletterPopup />
+            <LayoutShell>{children}</LayoutShell>
           </CartProvider>
         </LanguageProvider>
       </body>
     </html>
   );
 }
+

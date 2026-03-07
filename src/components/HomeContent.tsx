@@ -11,87 +11,95 @@ export default function HomeContent() {
     return (
         <div>
             {/* ===== HERO SECTION ===== */}
-            <section className="relative min-h-[85vh] flex items-center overflow-hidden">
-                {/* Background pattern */}
-                <div
-                    className="absolute inset-0 opacity-5"
-                    style={{
-                        backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23EC6E43' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-                    }}
+            <section className="relative min-h-screen flex items-center overflow-hidden">
+                {/* Scrolling food background - full width */}
+                <style>{`
+                    @keyframes hero-scroll-up { 0% { transform: translateY(0); } 100% { transform: translateY(-50%); } }
+                    @keyframes hero-scroll-down { 0% { transform: translateY(-50%); } 100% { transform: translateY(0); } }
+                    .hero-col-up { animation: hero-scroll-up 25s linear infinite; }
+                    .hero-col-down { animation: hero-scroll-down 30s linear infinite; }
+                `}</style>
+
+                {/* Food image columns as background */}
+                <div className="absolute inset-0 flex gap-3 p-3 opacity-50" style={{ transform: "rotate(-8deg) scale(1.4)", transformOrigin: "center center" }}>
+                    {[
+                        { imgs: ['egusi-soup.png', 'jollof-combo.png', 'pounded-yam.png', 'grilled-chicken.png', 'pepper-soup.png'], dir: 'up' },
+                        { imgs: ['fried-rice.png', 'asun-peppered-goat.png', 'fufu.png', 'plantain-asun-combo.png', 'amala.png'], dir: 'down' },
+                        { imgs: ['ogbono-soup.png', 'fried-plantain.png', 'boli-roasted-plantain.png', 'peppered-meat.png', 'semolina-semo.png'], dir: 'up' },
+                        { imgs: ['jollof-rice.png', 'eba-garri.png', 'grilled-chicken.png', 'egusi-soup.png', 'fried-rice.png'], dir: 'down' },
+                    ].map((col, colIdx) => (
+                        <div key={`hero-col-${colIdx}`} className="flex-1 overflow-hidden">
+                            <div className={`hero-col-${col.dir} flex flex-col gap-3`}>
+                                {[...col.imgs, ...col.imgs].map((img, i) => (
+                                    <div key={`hero-${colIdx}-${i}`} className="w-full aspect-[3/4] rounded-2xl overflow-hidden">
+                                        <Image src={`/menu/${img}`} alt="Food" width={400} height={500} className="w-full h-full object-cover" />
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    ))}
+                </div>
+
+                {/* Dark gradient overlay */}
+                <div className="absolute inset-0 bg-gradient-to-b from-[#0D0D0D]/70 via-[#0D0D0D]/55 to-[#0D0D0D]/90 z-10" />
+
+                {/* Colored ambient glows */}
+                <div className="absolute top-1/4 right-1/4 w-[500px] h-[500px] rounded-full opacity-20 z-10"
+                    style={{ background: "radial-gradient(circle, #D32F2F, transparent 60%)", filter: "blur(100px)" }}
                 />
-                <div className="absolute top-20 right-20 w-32 h-32 rounded-full animate-float opacity-20"
-                    style={{ background: "var(--color-accent)", filter: "blur(40px)" }}
+                <div className="absolute bottom-1/4 left-1/4 w-[400px] h-[400px] rounded-full opacity-15 z-10"
+                    style={{ background: "radial-gradient(circle, #2E7D32, transparent 60%)", filter: "blur(80px)" }}
                 />
-                <div className="absolute bottom-32 left-16 w-24 h-24 rounded-full animate-float stagger-3 opacity-15"
-                    style={{ background: "var(--color-primary)", filter: "blur(30px)" }}
+                <div className="absolute top-1/2 left-1/2 w-[300px] h-[300px] rounded-full opacity-10 z-10"
+                    style={{ background: "radial-gradient(circle, #F57C00, transparent 60%)", filter: "blur(60px)", transform: "translate(-50%, -50%)" }}
                 />
 
-                <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
+                {/* Hero content */}
+                <div className="relative z-20 max-w-6xl mx-auto px-6 text-center">
                     <div className="animate-fade-in-up">
                         <div
-                            className="clay-badge inline-flex items-center gap-2 mb-6 px-4 py-2"
-                            style={{ background: "var(--color-accent-light)", color: "var(--color-secondary)" }}
+                            className="inline-flex items-center gap-2 mb-8 px-5 py-2.5 rounded-full border border-white/15"
+                            style={{ background: "rgba(255,255,255,0.06)", backdropFilter: "blur(12px)" }}
                         >
-                            {t("home.badge")}
+                            <span className="text-lg">🍲</span>
+                            <span className="text-sm font-semibold tracking-widest uppercase" style={{ color: "var(--color-accent-light)" }}>
+                                {t("home.badge").replace('🍲 ', '')}
+                            </span>
                         </div>
                         <h1
-                            className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6"
+                            className="text-5xl md:text-7xl lg:text-8xl font-bold leading-[1.05] mb-8"
                             style={{ fontFamily: "var(--font-heading)" }}
                         >
                             {t("home.heroTitle1")}{" "}
-                            <span style={{ color: "var(--color-primary)" }}>{t("home.heroTitle2")}</span>,{" "}
+                            <span className="bg-gradient-to-r from-[#EF5350] to-[#D32F2F] bg-clip-text text-transparent">{t("home.heroTitle2")}</span>,{" "}
                             <br className="hidden md:block" />
                             {t("home.heroTitle3")}{" "}
-                            <span style={{ color: "var(--color-accent)" }}>{t("home.heroTitle4")}</span>
+                            <span className="bg-gradient-to-r from-[#4CAF50] to-[#2E7D32] bg-clip-text text-transparent">{t("home.heroTitle4")}</span>
                         </h1>
-                        <p className="text-lg mb-8 max-w-md leading-relaxed" style={{ color: "var(--color-text-light)" }}>
+                        <p className="text-lg md:text-xl mb-12 max-w-2xl mx-auto leading-relaxed text-white/60">
                             {t("home.heroDesc")}
                         </p>
-                        <div className="flex flex-wrap gap-4">
-                            <Link href="/menu" className="clay-button clay-button-primary text-base px-8 py-3.5">
-                                {t("home.viewMenu")} <ChevronRight size={18} className="inline ml-1" />
+                        <div className="flex flex-wrap justify-center gap-4">
+                            <Link href="/menu" className="group inline-flex items-center gap-2 px-10 py-4 rounded-full text-base font-bold text-white transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(211,47,47,0.4)]"
+                                style={{ background: "linear-gradient(135deg, #D32F2F, #B71C1C)", boxShadow: "0 8px 24px rgba(211,47,47,0.3)" }}>
+                                {t("home.viewMenu")} <ChevronRight size={18} className="transition-transform group-hover:translate-x-1" />
                             </Link>
                             <a
                                 href="https://wa.me/31612988455?text=Hi%20Mama%20DD%27s%2C%20I%20would%20like%20to%20place%20an%20order!"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="clay-button clay-button-whatsapp text-base px-8 py-3.5"
+                                className="inline-flex items-center gap-2 px-10 py-4 rounded-full text-base font-bold text-white transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(37,211,102,0.3)]"
+                                style={{ background: "linear-gradient(135deg, #25D366, #128C7E)", boxShadow: "0 8px 24px rgba(37,211,102,0.25)" }}
                             >
                                 {t("home.orderWhatsApp")}
                             </a>
                         </div>
                     </div>
 
-                    <div className="hidden lg:flex justify-center animate-fade-in-up stagger-2">
-                        <div className="relative">
-                            <div
-                                className="absolute inset-0 rounded-3xl animate-float"
-                                style={{
-                                    background: "radial-gradient(circle, var(--color-accent-light) 0%, transparent 70%)",
-                                    filter: "blur(40px)",
-                                    transform: "scale(1.1)",
-                                }}
-                            />
-                            <div className="relative z-10 clay-card overflow-hidden rounded-3xl" style={{ width: 420, height: 420 }}>
-                                <Image
-                                    src="/food-spread.png"
-                                    alt="Authentic West African food spread"
-                                    width={420}
-                                    height={420}
-                                    priority
-                                    className="object-cover w-full h-full"
-                                    style={{ borderRadius: "var(--radius-clay)" }}
-                                />
-                            </div>
-                            <div className="clay-card absolute -top-4 -right-4 p-4 animate-float">
-                                <span className="text-3xl">🍗</span>
-                            </div>
-                            <div className="clay-card absolute -bottom-2 -left-6 p-4 animate-float stagger-2">
-                                <span className="text-3xl">🥘</span>
-                            </div>
-                            <div className="clay-card absolute top-1/2 -right-10 p-3 animate-float stagger-4">
-                                <span className="text-2xl">🌶️</span>
-                            </div>
+                    {/* Scroll indicator */}
+                    <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-float">
+                        <div className="w-6 h-10 rounded-full border-2 border-white/20 flex justify-center pt-2">
+                            <div className="w-1 h-2 bg-white/40 rounded-full animate-bounce" />
                         </div>
                     </div>
                 </div>
@@ -131,7 +139,7 @@ export default function HomeContent() {
             {/* ===== DELIVERY ZONE ===== */}
             <section className="py-16 px-6">
                 <div className="max-w-5xl mx-auto">
-                    <div className="clay-card overflow-hidden" style={{ background: "linear-gradient(135deg, #1a3a2a 0%, #2d5a3d 50%, #1a3a2a 100%)", color: "white" }}>
+                    <div className="clay-card overflow-hidden" style={{ background: "linear-gradient(135deg, #0a1f14 0%, #1a3a2a 50%, #0a1f14 100%)", color: "white", border: "1px solid rgba(46,125,50,0.2)" }}>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-0 items-stretch">
                             <div className="p-10 md:p-12 flex flex-col justify-center">
                                 <div className="inline-flex items-center gap-2 px-4 py-2 rounded-2xl text-sm font-bold mb-6 w-fit"
@@ -196,7 +204,7 @@ export default function HomeContent() {
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
                             <div>
                                 <div className="clay-badge inline-flex mb-4 px-4 py-2"
-                                    style={{ background: "var(--color-accent-light)", color: "var(--color-secondary)" }}>
+                                    style={{ background: "rgba(46,125,50,0.15)", color: "#4CAF50", border: "1px solid rgba(46,125,50,0.2)" }}>
                                     {t("home.aboutBadge")}
                                 </div>
                                 <h2 className="text-3xl md:text-4xl font-bold mb-4" style={{ fontFamily: "var(--font-heading)" }}>
@@ -280,7 +288,7 @@ export default function HomeContent() {
             <section className="py-20 overflow-hidden">
                 <div className="max-w-7xl mx-auto px-6 mb-12">
                     <div className="text-center">
-                        <div className="clay-badge inline-flex items-center gap-2 mb-4 px-4 py-2" style={{ background: "#fef3c7", color: "#92400e" }}>
+                        <div className="clay-badge inline-flex items-center gap-2 mb-4 px-4 py-2" style={{ background: "rgba(245,124,0,0.15)", color: "#FFB74D", border: "1px solid rgba(245,124,0,0.2)" }}>
                             {t("home.reviewsBadge")}
                         </div>
                         <h2 className="text-3xl md:text-4xl font-bold mb-4" style={{ fontFamily: "var(--font-heading)" }}>{t("home.reviewsTitle")}</h2>
@@ -334,7 +342,7 @@ export default function HomeContent() {
                         { name: "Nagi", text: "First time trying Jollof rice, amazing. And outstanding customer support.", src: "Google" },
                     ];
                     const ReviewCard = ({ name, text, src }: { name: string; text: string; src: string }) => (
-                        <div className="clay-card p-5 flex-shrink-0 flex flex-col gap-3" style={{ width: "280px" }}>
+                        <div className="clay-card p-5 flex-shrink-0 flex flex-col gap-3 w-[240px] md:w-[280px]">
                             <div className="flex items-center justify-between">
                                 <div className="flex items-center gap-2">
                                     <div className="w-9 h-9 rounded-full flex items-center justify-center text-white text-sm font-bold flex-shrink-0"

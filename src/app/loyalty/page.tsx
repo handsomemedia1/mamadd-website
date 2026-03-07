@@ -35,7 +35,7 @@ export default async function LoyaltyPage({
                 <div className="text-center mb-12">
                     <div
                         className="clay-badge inline-flex items-center gap-2 mb-4 px-4 py-2"
-                        style={{ background: "var(--color-accent-light)", color: "var(--color-secondary)" }}
+                        style={{ background: "rgba(46,125,50,0.15)", color: "#4CAF50", border: "1px solid rgba(46,125,50,0.2)" }}
                     >
                         ⭐ Loyalty Programme
                     </div>
@@ -57,10 +57,10 @@ export default async function LoyaltyPage({
                     </h2>
                     <div className="grid sm:grid-cols-2 gap-4">
                         {[
-                            { emoji: "🛍️", label: "Order food", pts: "1 point per €1 spent", color: "var(--color-primary-light)" },
-                            { emoji: "🎁", label: "Sign up with a referral code", pts: "+100 pts bonus", color: "#fef3c7" },
-                            { emoji: "🤝", label: "Refer a friend", pts: "+50 pts when they order €20+", color: "#dcfce7" },
-                            { emoji: "🎉", label: "Special promotions", pts: "Bonus pts from time to time", color: "var(--color-accent-light)" },
+                            { emoji: "🛍️", label: "Order food", pts: "1 point per €1 spent", color: "rgba(211,47,47,0.15)" },
+                            { emoji: "🎁", label: "Sign up with a referral code", pts: "+100 pts bonus", color: "rgba(245,124,0,0.15)" },
+                            { emoji: "🤝", label: "Refer a friend", pts: "+50 pts when they order €20+", color: "rgba(46,125,50,0.15)" },
+                            { emoji: "🎉", label: "Special promotions", pts: "Bonus pts from time to time", color: "rgba(156,39,176,0.15)" },
                         ].map((item) => (
                             <div
                                 key={item.label}
@@ -70,7 +70,7 @@ export default async function LoyaltyPage({
                                 <span className="text-3xl">{item.emoji}</span>
                                 <div>
                                     <p className="font-semibold text-sm">{item.label}</p>
-                                    <p className="text-xs font-bold" style={{ color: "var(--color-primary)" }}>
+                                    <p className="text-xs font-bold" style={{ color: "#FF8A80" }}>
                                         {item.pts}
                                     </p>
                                 </div>
@@ -81,7 +81,7 @@ export default async function LoyaltyPage({
                     {/* Referral info box */}
                     <div
                         className="clay-card p-4 mt-4 text-sm"
-                        style={{ background: "#dcfce7" }}
+                        style={{ background: "rgba(46,125,50,0.12)", color: "#A5D6A7", border: "1px solid rgba(46,125,50,0.2)" }}
                     >
                         🤝 <strong>Referral Rule:</strong> Your friend must complete an order of at least <strong>€20</strong> before you receive your referral bonus points. So share your code and encourage them to order big!
                     </div>
@@ -110,7 +110,7 @@ export default async function LoyaltyPage({
                     </div>
                     <div
                         className="clay-card p-4 mt-4 text-sm"
-                        style={{ background: "var(--color-accent-light)" }}
+                        style={{ background: "rgba(245,124,0,0.12)", color: "#FFB74D", border: "1px solid rgba(245,124,0,0.2)" }}
                     >
                         💡 <strong>How to redeem:</strong> When ordering via WhatsApp or Email, mention your referral code and how many points
                         you want to use. Mama DD will apply the discount to your total!
@@ -129,7 +129,7 @@ export default async function LoyaltyPage({
                             defaultValue={email || ""}
                             placeholder="Enter your email address"
                             className="flex-1 px-4 py-3 rounded-xl"
-                            style={{ border: "2px solid var(--color-accent-light)", outline: "none", background: "white", fontSize: "1rem" }}
+                            style={{ border: "2px solid rgba(255,255,255,0.15)", outline: "none", background: "rgba(255,255,255,0.08)", color: "#F5F5F5", fontSize: "1rem" }}
                         />
                         <button
                             type="submit"
@@ -142,7 +142,7 @@ export default async function LoyaltyPage({
                     {email && !customer && (
                         <div
                             className="clay-card p-4 text-sm"
-                            style={{ background: "#fee2e2", color: "#dc2626" }}
+                            style={{ background: "rgba(220,38,38,0.15)", color: "#EF9A9A", border: "1px solid rgba(220,38,38,0.2)" }}
                         >
                             No account found for <strong>{email}</strong>.{" "}
                             <a href="/register" style={{ textDecoration: "underline" }}>
@@ -166,7 +166,7 @@ export default async function LoyaltyPage({
                                         </span>
                                     </p>
                                 </div>
-                                <div className="clay-card px-5 py-3 text-center" style={{ background: "var(--color-accent-light)" }}>
+                                <div className="clay-card px-5 py-3 text-center" style={{ background: "rgba(211,47,47,0.15)", border: "1px solid rgba(211,47,47,0.2)" }}>
                                     <p className="text-3xl font-bold" style={{ color: "var(--color-primary)" }}>
                                         {customer.points}
                                     </p>
@@ -185,7 +185,7 @@ export default async function LoyaltyPage({
                                             <span>{customer.points} pts</span>
                                             <span>{next.pts} pts — {next.reward}</span>
                                         </div>
-                                        <div className="rounded-full h-3" style={{ background: "var(--color-accent-light)" }}>
+                                        <div className="rounded-full h-3" style={{ background: "rgba(255,255,255,0.1)" }}>
                                             <div
                                                 className="h-3 rounded-full transition-all"
                                                 style={{ width: `${pct}%`, background: "var(--color-primary)" }}

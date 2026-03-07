@@ -163,15 +163,15 @@ export default function MenuContent({ categories }: { categories: Category[] }) 
                                 {category.menuItems.map((item) => (
                                     <div
                                         key={item.id}
-                                        className="clay-card p-5 flex gap-4 group hover:scale-[1.01] transition-transform"
+                                        className="clay-card p-4 sm:p-5 flex flex-col sm:flex-row gap-4 group hover:scale-[1.01] transition-transform"
                                     >
                                         {/* Image placeholder / emoji */}
                                         {item.imageUrl ? (
                                             <div
-                                                className="w-20 h-20 rounded-2xl flex-shrink-0 overflow-hidden"
+                                                className="w-full sm:w-40 sm:h-40 h-56 rounded-2xl flex-shrink-0 overflow-hidden"
                                                 style={{
                                                     boxShadow:
-                                                        "inset 2px 2px 4px rgba(0,0,0,0.08), 3px 3px 6px rgba(0,0,0,0.08)",
+                                                        "inset 2px 2px 4px rgba(0,0,0,0.4), 3px 3px 6px rgba(0,0,0,0.5)",
                                                 }}
                                             >
                                                 <img
@@ -182,7 +182,7 @@ export default function MenuContent({ categories }: { categories: Category[] }) 
                                             </div>
                                         ) : (
                                             <div
-                                                className="w-20 h-20 rounded-2xl flex-shrink-0 flex items-center justify-center text-3xl"
+                                                className="w-full sm:w-40 sm:h-40 h-56 rounded-2xl flex-shrink-0 flex items-center justify-center text-5xl sm:text-4xl"
                                                 style={{
                                                     background:
                                                         "linear-gradient(135deg, var(--color-accent-light), var(--color-cream))",
@@ -195,16 +195,16 @@ export default function MenuContent({ categories }: { categories: Category[] }) 
                                         )}
 
                                         {/* Item Details */}
-                                        <div className="flex-1 min-w-0">
-                                            <div className="flex items-start justify-between gap-2 mb-1">
+                                        <div className="flex-1 min-w-0 flex flex-col justify-center">
+                                            <div className="flex items-start justify-between gap-2 mb-2">
                                                 <h3
-                                                    className="font-semibold text-base leading-tight"
+                                                    className="font-semibold text-lg sm:text-base leading-tight"
                                                     style={{ fontFamily: "var(--font-heading)" }}
                                                 >
                                                     {item.name}
                                                     {item.isFeatured && (
                                                         <span
-                                                            className="ml-2 text-xs px-2 py-0.5 rounded-full align-middle"
+                                                            className="ml-2 text-xs px-2 py-0.5 rounded-full align-middle inline-block mt-1 sm:mt-0"
                                                             style={{
                                                                 background: "var(--color-accent-light)",
                                                                 color: "var(--color-accent)",
@@ -216,7 +216,7 @@ export default function MenuContent({ categories }: { categories: Category[] }) 
                                                         </span>
                                                     )}
                                                 </h3>
-                                                <div className="flex items-center gap-2">
+                                                <div className="flex flex-col sm:flex-row items-end sm:items-center gap-2">
                                                     <span
                                                         className="text-lg font-bold whitespace-nowrap"
                                                         style={{ color: "var(--color-primary)" }}
