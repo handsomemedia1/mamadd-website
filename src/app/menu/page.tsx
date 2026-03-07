@@ -11,7 +11,8 @@ export const metadata: Metadata = {
 export const dynamic = "force-dynamic";
 
 export default async function MenuPage() {
-    let categories;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    let categories: any[] = [];
     try {
         categories = await prisma.category.findMany({
             orderBy: { order: "asc" },
@@ -44,7 +45,7 @@ export default async function MenuPage() {
         id: cat.id,
         name: cat.name,
         order: cat.order,
-        menuItems: cat.menuItems.map((item) => ({
+        menuItems: cat.menuItems.map((item: any) => ({
             id: item.id,
             name: item.name,
             description: item.description,
