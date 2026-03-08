@@ -32,9 +32,9 @@ export default async function AdminBookingsPage() {
     }
 
     const statusColor: Record<string, string> = {
-        pending: "#fef3c7",
-        confirmed: "#dcfce7",
-        cancelled: "#fee2e2",
+        pending: "var(--color-accent)20",
+        confirmed: "var(--color-success)20",
+        cancelled: "var(--color-error)20",
     };
     const statusText: Record<string, string> = {
         pending: "⏳ Pending",
@@ -59,28 +59,23 @@ export default async function AdminBookingsPage() {
                 <form action={createSlot} className="grid sm:grid-cols-3 gap-4">
                     <div>
                         <label className="block text-xs font-semibold mb-1">Date *</label>
-                        <input name="date" type="date" required className="w-full px-3 py-2 rounded-xl"
-                            style={{ border: "2px solid var(--color-accent-light)", outline: "none", background: "white" }} />
+                        <input name="date" type="date" required className="clay-input w-full" />
                     </div>
                     <div>
                         <label className="block text-xs font-semibold mb-1">Start Time *</label>
-                        <input name="startTime" type="time" required defaultValue="18:00" className="w-full px-3 py-2 rounded-xl"
-                            style={{ border: "2px solid var(--color-accent-light)", outline: "none", background: "white" }} />
+                        <input name="startTime" type="time" required defaultValue="18:00" className="clay-input w-full" />
                     </div>
                     <div>
                         <label className="block text-xs font-semibold mb-1">End Time *</label>
-                        <input name="endTime" type="time" required defaultValue="20:00" className="w-full px-3 py-2 rounded-xl"
-                            style={{ border: "2px solid var(--color-accent-light)", outline: "none", background: "white" }} />
+                        <input name="endTime" type="time" required defaultValue="20:00" className="clay-input w-full" />
                     </div>
                     <div>
                         <label className="block text-xs font-semibold mb-1">Max Bookings</label>
-                        <input name="maxBookings" type="number" defaultValue="10" min="1" max="100" className="w-full px-3 py-2 rounded-xl"
-                            style={{ border: "2px solid var(--color-accent-light)", outline: "none", background: "white" }} />
+                        <input name="maxBookings" type="number" defaultValue="10" min="1" max="100" className="clay-input w-full" />
                     </div>
                     <div className="sm:col-span-2">
                         <label className="block text-xs font-semibold mb-1">Note (optional)</label>
-                        <input name="note" placeholder="e.g. Special menu available" className="w-full px-3 py-2 rounded-xl"
-                            style={{ border: "2px solid var(--color-accent-light)", outline: "none", background: "white" }} />
+                        <input name="note" placeholder="e.g. Special menu available" className="clay-input w-full" />
                     </div>
                     <div className="sm:col-span-3 flex justify-end">
                         <button type="submit" className="clay-button clay-button-primary px-6 py-2 font-bold">
@@ -107,7 +102,7 @@ export default async function AdminBookingsPage() {
                                         </p>
                                     </div>
                                     <span className="text-xs px-2 py-1 rounded-full font-semibold"
-                                        style={{ background: slot.isOpen ? "#dcfce7" : "#fee2e2", color: slot.isOpen ? "#166534" : "#dc2626" }}>
+                                        style={{ background: slot.isOpen ? "var(--color-success)30" : "var(--color-error)30", color: slot.isOpen ? "var(--color-success)" : "var(--color-error)" }}>
                                         {slot.isOpen ? "Open" : "Closed"}
                                     </span>
                                     <form action={toggleSlot.bind(null, slot.id, slot.isOpen)}>
@@ -116,7 +111,7 @@ export default async function AdminBookingsPage() {
                                         </button>
                                     </form>
                                     <form action={deleteSlot.bind(null, slot.id)}>
-                                        <button type="submit" className="text-xs px-3 py-1 rounded-xl" style={{ background: "#fee2e2", color: "#dc2626" }}>
+                                        <button type="submit" className="text-xs px-3 py-1 rounded-xl" style={{ background: "var(--color-error)20", color: "var(--color-error)" }}>
                                             Delete
                                         </button>
                                     </form>
@@ -140,7 +135,7 @@ export default async function AdminBookingsPage() {
                             <div
                                 key={booking.id}
                                 className="clay-card p-5"
-                                style={{ background: statusColor[booking.status] ?? "white" }}
+                                style={{ background: statusColor[booking.status] ?? "var(--color-surface)" }}
                             >
                                 <div className="flex items-start justify-between gap-4">
                                     <div>
@@ -160,7 +155,7 @@ export default async function AdminBookingsPage() {
                                     </div>
                                     <div className="flex flex-col gap-2 shrink-0">
                                         <span className="text-xs px-2 py-1 rounded-full font-semibold text-center"
-                                            style={{ background: "rgba(0,0,0,0.08)" }}>
+                                            style={{ background: "var(--color-surface)", border: "1px solid var(--color-border)" }}>
                                             {statusText[booking.status]}
                                         </span>
                                         {booking.status === "pending" && (
@@ -172,7 +167,7 @@ export default async function AdminBookingsPage() {
                                                 </form>
                                                 <form action={updateBookingStatus.bind(null, booking.id, "cancelled")}>
                                                     <button type="submit" className="text-xs px-3 py-1 rounded-xl w-full"
-                                                        style={{ background: "#fee2e2", color: "#dc2626" }}>
+                                                        style={{ background: "var(--color-error)20", color: "var(--color-error)" }}>
                                                         Cancel
                                                     </button>
                                                 </form>

@@ -84,15 +84,6 @@ export default function HomeContent() {
                                 style={{ background: "linear-gradient(135deg, #D32F2F, #B71C1C)", boxShadow: "0 8px 24px rgba(211,47,47,0.3)" }}>
                                 {t("home.viewMenu")} <ChevronRight size={18} className="transition-transform group-hover:translate-x-1" />
                             </Link>
-                            <a
-                                href="https://wa.me/31612988455?text=Hi%20Mama%20DD%27s%2C%20I%20would%20like%20to%20place%20an%20order!"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="inline-flex items-center gap-2 px-10 py-4 rounded-full text-base font-bold text-white transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(37,211,102,0.3)]"
-                                style={{ background: "linear-gradient(135deg, #25D366, #128C7E)", boxShadow: "0 8px 24px rgba(37,211,102,0.25)" }}
-                            >
-                                {t("home.orderWhatsApp")}
-                            </a>
                         </div>
                     </div>
 

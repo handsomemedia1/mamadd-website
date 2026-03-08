@@ -10,12 +10,9 @@ const poppins = {
 };
 
 export const metadata: Metadata = {
-  title: {
-    default: "Mama DD's | Authentic African Food in Enschede",
-    template: "%s | Mama DD's African Kitchen",
-  },
+  title: "Mama DD's African Kitchen | Authentic Food in Enschede",
   description:
-    "The first authentic homemade African food in Enschede. Order Jollof Rice, Egusi, Fufu, and more traditional West African dishes. Order via WhatsApp!",
+    "The first authentic homemade African food in Enschede. Order Jollof Rice, Egusi, Fufu, and more traditional African dishes. Order via WhatsApp!",
   keywords: [
     "African Food",
     "Enschede",
@@ -23,8 +20,9 @@ export const metadata: Metadata = {
     "Jollof Rice",
     "Fufu",
     "Egusi",
-    "African Restaurant",
-    "West African Food",
+    "Enschede Food",
+    "African Food",
+    "Delivery",
     "Homemade Meals",
     "Nigerian Food Netherlands",
   ],
@@ -49,7 +47,7 @@ const restaurantSchema = {
   "@type": "Restaurant",
   name: "Mama DD's African Kitchen",
   image: "",
-  servesCuisine: ["African", "Nigerian", "West African"],
+  servesCuisine: ["African", "Nigerian"],
   address: {
     "@type": "PostalAddress",
     streetAddress: "Waalstraat 134",

@@ -278,8 +278,8 @@ export default function AdminBlogClient({ posts }: { posts: BlogPost[] }) {
                                         className="px-2 py-0.5 rounded-full text-[10px] font-bold uppercase"
                                         style={{
                                             background: post.published
-                                                ? "rgba(76, 175, 80, 0.1)"
-                                                : "rgba(0,0,0,0.05)",
+                                                ? "var(--color-success)20"
+                                                : "var(--color-surface)",
                                             color: post.published
                                                 ? "var(--color-success)"
                                                 : "var(--color-text-muted)",
@@ -302,7 +302,7 @@ export default function AdminBlogClient({ posts }: { posts: BlogPost[] }) {
                             <div className="flex items-center gap-1">
                                 <button
                                     onClick={() => handleToggle(post)}
-                                    className="p-2 rounded-xl hover:bg-gray-100 transition-colors"
+                                    className="p-2 rounded-xl hover:bg-white/10 transition-colors"
                                     title={post.published ? "Unpublish" : "Publish"}
                                 >
                                     {post.published ? (
@@ -313,14 +313,14 @@ export default function AdminBlogClient({ posts }: { posts: BlogPost[] }) {
                                 </button>
                                 <button
                                     onClick={() => setEditingPost(post)}
-                                    className="p-2 rounded-xl hover:bg-gray-100 transition-colors"
+                                    className="p-2 rounded-xl hover:bg-white/10 transition-colors"
                                     title="Edit"
                                 >
                                     <Pencil size={15} />
                                 </button>
                                 <button
                                     onClick={() => handleDelete(post)}
-                                    className="p-2 rounded-xl hover:bg-gray-100 text-red-500 transition-colors"
+                                    className="p-2 rounded-xl hover:bg-red-500/20 text-red-500 transition-colors"
                                     title="Delete"
                                 >
                                     <Trash2 size={15} />

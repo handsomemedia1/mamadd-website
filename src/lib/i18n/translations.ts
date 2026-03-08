@@ -14,8 +14,8 @@ export const translations: Record<Locale, Record<string, string>> = {
         "nav.orderNow": "Order Now",
 
         // ── Homepage Hero ──
-        "home.badge": "🍲 Authentic West African Cuisine",
-        "home.heroTitle1": "Taste of",
+        "home.badge": "🍲 Authentic African Cuisine",
+        "home.heroTitle1": "Taste the True",
         "home.heroTitle2": "Africa",
         "home.heroTitle3": "Made with",
         "home.heroTitle4": "Love",
@@ -29,8 +29,7 @@ export const translations: Record<Locale, Record<string, string>> = {
         "home.howSubtitle": "Three simple steps to enjoy authentic African food",
         "home.step": "Step",
         "home.step1Title": "Browse Menu",
-        "home.step1Desc":
-            "Explore our authentic West African dishes and add your favorites to cart.",
+        "home.step1Desc": "Explore our authentic African dishes and add your favorites to cart.",
         "home.step2Title": "Order via WhatsApp",
         "home.step2Desc":
             "Your order is sent directly to us via WhatsApp — quick and personal.",
@@ -41,9 +40,8 @@ export const translations: Record<Locale, Record<string, string>> = {
         // ── Delivery ──
         "home.deliveryBadge": "🛵 We Deliver!",
         "home.deliveryTitle": "Fresh to Your Door",
-        "home.deliveryDesc":
-            "Can't make it to us? No problem. We deliver hot, freshly cooked West African meals within a",
-        "home.deliveryRadius": "10 km radius",
+        "home.deliveryDesc": "Can't make it to us? No problem. We deliver hot, freshly cooked African meals within a",
+        "home.deliveryRadius": "10km radius",
         "home.deliveryDesc2": "of our kitchen in Enschede.",
         "home.deliveryPoint1": "10 km delivery radius from Waalstraat, Enschede",
         "home.deliveryPoint2": "Delivery charges quoted personally on WhatsApp",
@@ -56,8 +54,7 @@ export const translations: Record<Locale, Record<string, string>> = {
         "home.aboutBadge": "🏠 Our Story",
         "home.aboutTitle1": "More Than Food,",
         "home.aboutTitle2": "It's Home",
-        "home.aboutDesc":
-            "Mama DD brings the authentic flavors of West Africa to Enschede. Every dish is prepared with traditional recipes passed down through generations — the same way it's made at home, in Africa. When you eat with us, you're not just eating food — you're experiencing a culture.",
+        "home.aboutDesc": "Mama DD brings the authentic flavors of Africa to Enschede. Every dish is prepared with traditional recipes passed down through generations — the same way it's made at home, in Africa. When you eat with us, you're not just eating food — you're experiencing a culture.",
         "home.readStory": "Read Our Story",
 
         // ── Find Us ──
@@ -79,26 +76,21 @@ export const translations: Record<Locale, Record<string, string>> = {
 
         // ── CTA Banner ──
         "home.ctaTitle": "Ready to Taste Africa?",
-        "home.ctaDesc":
-            "Order your favorite dishes now and experience authentic West African flavors, made fresh just for you.",
+        "home.ctaDesc": "Order your favorite dishes now and experience authentic African flavors, made fresh just for you.",
         "home.ctaMenu": "View Our Menu",
         "home.ctaWhatsApp": "💬 WhatsApp Order",
 
         // ── About Page ──
         "about.badge": "🏠 Our Story",
         "about.title": "About Mama DD's",
-        "about.subtitle":
-            "A cultural gateway to West African flavors, right here in Enschede",
-        "about.storyTitle1": "About",
-        "about.storyTitle2": "Mama DD's African Kitchen",
-        "about.storyP1":
-            "Mama DD's is a home-cooked West African kitchen based in Enschede, specialising in traditional Nigerian and other African cuisine. Behind every dish is a skilled and experienced chef whose passion for African flavours ensures each meal is crafted with authenticity and care.",
-        "about.storyP2":
-            "What started as a simple desire to share the rich tastes of West Africa with friends and family quickly grew into something much larger. Today, Mama DD's has become a go-to destination for anyone craving genuine African food in the Netherlands.",
-        "about.menuTitle1": "The",
-        "about.menuTitle2": "Menu",
-        "about.menuP1":
-            "Our menu features a vibrant selection of traditional staples, including Jollof rice, pounded yams, and various types of fufu, all served with richly flavoured soups like Ogbono and Egusi. Guests can choose from a range of combos and vegetarian options, often accompanied by beloved sides such as fried plantains or spicy asun meat. To complete the experience, we offer soft drinks and traditional non-alcoholic malt beverages that are cherished across African cultures.",
+        "about.subtitle": "A cultural gateway to African flavors, right here in Enschede",
+        "about.storyTitle": "Our Story",
+        "about.imageAlt": "Mama DD cooking authentic African food",
+
+        "about.p1": "Mama DD's is a home-cooked African kitchen based in Enschede, specialising in traditional Nigerian and other African cuisine. Behind every dish is a skilled and experienced chef whose passion for African flavours ensures each meal is crafted with authenticity and care.",
+        "about.p2": "What started as a simple desire to share the rich tastes of Africa with friends and family quickly grew into something much larger. Today, Mama DD's has become a go-to destination for anyone craving genuine African food in the Netherlands.",
+        "about.p3": "Every pot is prepared from scratch using time-honoured methods, ensuring that every bite delivers that unmistakable feeling of home. The menu strikes a perfect balance: offering both fiery, intensely spiced dishes for those who love bold flavours, and milder, well-seasoned options that comfort the soul. No matter the heat level, quality remains uncompromised—the highest grade of meats and the freshest ingredients are carefully selected to provide the best possible culinary experience.",
+        "about.p4": "Our menu features a vibrant selection of traditional staples, including Jollof rice, pounded yams, and various types of fufu, all served with richly flavoured soups like Ogbono and Egusi. Guests can choose from a range of combos and vegetarian options, often accompanied by beloved sides such as fried plantains or spicy asun meat. To complete the experience, we offer soft drinks and traditional non-alcoholic malt beverages that are cherished across African cultures.",
         "about.val1Title": "Generous Portions",
         "about.val1Desc":
             "Our customers frequently praise Mama DD's for its generous portions and perfectly balanced spices.",
@@ -136,9 +128,9 @@ export const translations: Record<Locale, Record<string, string>> = {
         "contact.closedDays": "Closed: Monday, Friday, Sunday",
 
         // ── Menu Page ──
-        "menu.badge": "🍽️ Our Menu",
-        "menu.title": "What's Cooking",
-        "menu.subtitle": "Authentic West African dishes, made fresh daily with love",
+        "menu.badge": "🍽️View Our Menu",
+        "menu.title": "Menu",
+        "menu.subtitle": "Authentic African dishes, made fresh daily with love",
         "menu.orderWA": "Order via WhatsApp",
         "menu.deliveryBadge": "🛵 Delivery available within 10 km — ask on WhatsApp",
         "menu.cateringBadge": "🎉 Catering for Parties & Events — Ask Us!",
@@ -155,8 +147,10 @@ export const translations: Record<Locale, Record<string, string>> = {
             "For catering and large party orders, contact us via WhatsApp or email.",
 
         // ── Footer ──
+        "cart.title": "Your Order",
+        "metadata.desc": "The first authentic homemade African food in Enschede. Experience the rich flavors of African cuisine, made with love by Mama DD.",
         "footer.brandDesc":
-            "The first authentic homemade African food in Enschede. Experience the rich flavors of West African cuisine, made with love by Mama DD.",
+            "The first authentic homemade African food in Enschede. Experience the rich flavors of African cuisine, made with love by Mama DD.",
         "footer.quickLinks": "Quick Links",
         "footer.ourMenu": "Our Menu",
         "footer.blog": "Blog",

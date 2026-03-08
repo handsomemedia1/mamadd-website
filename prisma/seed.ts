@@ -53,12 +53,12 @@ async function main() {
 
     // Create menu items
     const menuItems = [
-        { name: "Egusi Soup", description: "Traditional West African soup made with ground melon seeds, enriched with assorted meats and vegetables.", price: 14.50, categoryId: "cat-soups", isFeatured: true },
-        { name: "Ogbono Soup", description: "Classic Nigerian soup with a unique slippery texture and deep nutty flavor from ground Ogbono seeds.", price: 14.50, categoryId: "cat-soups" },
+        { name: "Egusi Soup", description: "Traditional African soup made with ground melon seeds, enriched with assorted meats and vegetables.", price: 14.50, categoryId: "cat-soups", isFeatured: true },
+        { name: "Ogbono Soup", description: "A rich, hearty soup with a unique texture, packed with flavors from the motherland. Served with assorted meat.", price: 14.50, categoryId: "cat-soups", isFeatured: false },
         { name: "Fish Peppersoup", description: "Spicy and savory broth with bold aromatics, fresh fish, and traditional African spices.", price: 15.00, categoryId: "cat-soups", isFeatured: true },
         { name: "Ewedu Soup", description: "Traditional Yoruba jute leaf soup, smooth and silky, perfect with any swallow.", price: 12.50, categoryId: "cat-soups" },
-        { name: "Jollof Rice", description: "Our signature one-pot West African classic — vibrant, spicy, and smoky. Served with your choice of protein.", price: 12.50, categoryId: "cat-rice", isFeatured: true },
-        { name: "Jollof Spaghetti", description: "A delicious twist on Jollof — spaghetti cooked in a rich, spicy tomato-based sauce.", price: 11.50, categoryId: "cat-rice" },
+        { name: "Jollof Rice", description: "Our signature one-pot African classic — vibrant, spicy, and smoky. Served with your choice of protein.", price: 12.50, categoryId: "cat-rice", isFeatured: true },
+        { name: "Fried Rice", description: "A colorful medley of rice and fresh vegetables, stir-fried to perfection with homemade spices.", price: 12.50, categoryId: "cat-rice", isFeatured: false },
         { name: "Eba (Garri)", description: "Classic Nigerian swallow made from cassava flakes. Perfect companion for any soup.", price: 5.00, categoryId: "cat-swallow" },
         { name: "Amala", description: "Smooth, dark yam flour swallow — a Yoruba favorite.", price: 5.00, categoryId: "cat-swallow" },
         { name: "Semolina (Semo)", description: "Light and fluffy wheat-based swallow, pairs beautifully with any soup.", price: 5.00, categoryId: "cat-swallow" },

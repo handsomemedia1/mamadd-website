@@ -96,7 +96,7 @@ export default async function AdminCustomersPage() {
                                             {customer.pointHistory.map((tx) => (
                                                 <div key={tx.id} className="flex justify-between text-sm clay-card px-3 py-2">
                                                     <span style={{ color: "var(--color-text-muted)" }}>{tx.description}</span>
-                                                    <span className="font-bold" style={{ color: tx.points > 0 ? "var(--color-primary)" : "#dc2626" }}>
+                                                    <span className="font-bold" style={{ color: tx.points > 0 ? "var(--color-success)" : "var(--color-error)" }}>
                                                         {tx.points > 0 ? `+${tx.points}` : tx.points} pts
                                                     </span>
                                                 </div>
@@ -115,8 +115,7 @@ export default async function AdminCustomersPage() {
                                     }} className="clay-card p-3">
                                         <p className="text-xs font-semibold mb-2">Add Order Points</p>
                                         <input name="amount" type="number" min="0.01" step="0.01" placeholder="Order amount (€)"
-                                            className="w-full px-2 py-1 mb-2 rounded-lg text-sm"
-                                            style={{ border: "1px solid var(--color-accent-light)", outline: "none", background: "white" }} />
+                                            className="clay-input w-full mb-2" />
                                         <button type="submit" className="clay-button clay-button-primary w-full text-xs py-1">
                                             + 10pts per €1
                                         </button>
@@ -131,12 +130,10 @@ export default async function AdminCustomersPage() {
                                     }} className="clay-card p-3">
                                         <p className="text-xs font-semibold mb-2">Add Bonus Points</p>
                                         <input name="points" type="number" min="1" placeholder="Points"
-                                            className="w-full px-2 py-1 mb-1 rounded-lg text-sm"
-                                            style={{ border: "1px solid var(--color-accent-light)", outline: "none", background: "white" }} />
-                                        <input name="desc" placeholder="Reason" className="w-full px-2 py-1 mb-2 rounded-lg text-sm"
-                                            style={{ border: "1px solid var(--color-accent-light)", outline: "none", background: "white" }} />
+                                            className="clay-input w-full mb-1" />
+                                        <input name="desc" placeholder="Reason" className="clay-input w-full mb-2" />
                                         <button type="submit" className="clay-button clay-button-primary w-full text-xs py-1"
-                                            style={{ background: "#dcfce7", color: "#166534" }}>
+                                            style={{ background: "var(--color-success)20", color: "var(--color-success)" }}>
                                             + Add Points
                                         </button>
                                     </form>
@@ -150,12 +147,10 @@ export default async function AdminCustomersPage() {
                                     }} className="clay-card p-3">
                                         <p className="text-xs font-semibold mb-2">Redeem Points</p>
                                         <input name="points" type="number" min="1" placeholder="Points to redeem"
-                                            className="w-full px-2 py-1 mb-1 rounded-lg text-sm"
-                                            style={{ border: "1px solid var(--color-accent-light)", outline: "none", background: "white" }} />
-                                        <input name="desc" placeholder="Order reference" className="w-full px-2 py-1 mb-2 rounded-lg text-sm"
-                                            style={{ border: "1px solid var(--color-accent-light)", outline: "none", background: "white" }} />
+                                            className="clay-input w-full mb-1" />
+                                        <input name="desc" placeholder="Order reference" className="clay-input w-full mb-2" />
                                         <button type="submit" className="w-full text-xs py-1 rounded-lg font-semibold"
-                                            style={{ background: "#fee2e2", color: "#dc2626" }}>
+                                            style={{ background: "var(--color-error)20", color: "var(--color-error)" }}>
                                             − Redeem
                                         </button>
                                     </form>

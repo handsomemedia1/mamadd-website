@@ -6,7 +6,7 @@ import { Calendar, ArrowRight, Clock } from "lucide-react";
 export const metadata: Metadata = {
     title: "Blog",
     description:
-        "Stories, recipes, and updates from Mama DD's African Kitchen in Enschede. Learn about West African cuisine, cooking tips, and our journey.",
+        "Stories, recipes, and updates from Mama DD's African Kitchen in Enschede. Learn about African cuisine, cooking tips, and our journey.",
 };
 
 export const dynamic = "force-dynamic";

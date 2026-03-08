@@ -4,6 +4,7 @@ import { ShoppingBag } from "lucide-react";
 import AddToCartButton from "@/components/AddToCartButton";
 import ShareButtons from "@/components/ShareButtons";
 import { useTranslation } from "@/lib/i18n/useTranslation";
+import { useCart } from "@/lib/cart";
 
 interface MenuItem {
     id: string;
@@ -24,6 +25,15 @@ interface Category {
 
 export default function MenuContent({ categories }: { categories: Category[] }) {
     const { t } = useTranslation();
+    const { totalItems } = useCart();
+
+    const handleBottomWhatsAppClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+        if (totalItems === 0) {
+            e.preventDefault();
+            alert("Please pick from the Menu first.");
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+    };
 
     return (
         <div className="max-w-6xl mx-auto px-6 py-12">
@@ -51,19 +61,6 @@ export default function MenuContent({ categories }: { categories: Category[] }) 
                     {t("menu.subtitle")}
                 </p>
 
-                {/* WhatsApp Order CTA */}
-                <a
-                    href={`https://wa.me/31612988455?text=${encodeURIComponent(
-                        "Hi Mama DD's! I'd like to place an order 🍲"
-                    )}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="clay-button clay-button-whatsapp inline-flex items-center gap-2 text-sm"
-                >
-                    <ShoppingBag size={18} />
-                    {t("menu.orderWA")}
-                </a>
-
                 {/* Delivery info badge */}
                 <div className="mt-3 flex items-center justify-center gap-2">
                     <a
@@ -89,7 +86,7 @@ export default function MenuContent({ categories }: { categories: Category[] }) 
                     <ShareButtons
                         url="https://mamadd.com/menu"
                         title="Check out Mama DD's African Kitchen Menu!"
-                        description="Authentic West African dishes in Enschede — Jollof Rice, Egusi, Fufu, and more."
+                        description="Authentic African dishes in Enschede — Jollof Rice, Egusi, Fufu, and more."
                         compact
                     />
                 </div>
@@ -273,6 +270,7 @@ export default function MenuContent({ categories }: { categories: Category[] }) 
                     )}`}
                     target="_blank"
                     rel="noopener noreferrer"
+                    onClick={handleBottomWhatsAppClick}
                     className="clay-button inline-flex items-center gap-2 text-sm"
                     style={{
                         background: "white",

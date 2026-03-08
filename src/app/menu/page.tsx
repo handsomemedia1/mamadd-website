@@ -3,9 +3,9 @@ import { prisma } from "@/lib/db";
 import MenuContent from "@/components/MenuContent";
 
 export const metadata: Metadata = {
-    title: "Menu",
+    title: "Menu | Authentic African Food in Enschede",
     description:
-        "Browse Mama DD's full menu — authentic West African dishes including Jollof Rice, Egusi Soup, Asun, Fried Plantain, and more. Order via WhatsApp for pickup in Enschede.",
+        "Browse Mama DD's full menu — authentic African dishes including Jollof Rice, Egusi Soup, Asun, Fried Plantain, and more. Order via WhatsApp for pickup in Enschede.",
 };
 
 export const dynamic = "force-dynamic";

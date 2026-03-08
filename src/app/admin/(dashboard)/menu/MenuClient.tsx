@@ -254,7 +254,7 @@ function CategoryRow({
                             className={`flex items-center gap-3 p-3 rounded-2xl transition-all ${!item.isAvailable ? "opacity-50" : ""
                                 }`}
                             style={{
-                                background: item.isAvailable ? "white" : "var(--color-cream)",
+                                background: item.isAvailable ? "var(--color-surface-warm)" : "var(--color-cream)",
                                 boxShadow: "inset 1px 1px 3px rgba(0,0,0,0.04), 2px 2px 4px rgba(0,0,0,0.04)",
                             }}
                         >

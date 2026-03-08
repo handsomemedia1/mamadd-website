@@ -234,7 +234,7 @@ export default function AdminTimetablePage() {
                                             <>
                                                 <button
                                                     onClick={() => togglePublish(i)}
-                                                    className="p-1.5 rounded-lg hover:bg-gray-100 transition-colors"
+                                                    className="p-1.5 rounded-lg hover:bg-white/10 transition-colors"
                                                     title={dayData.isPublished ? "Unpublish" : "Publish"}
                                                 >
                                                     {dayData.isPublished ? (
@@ -245,7 +245,7 @@ export default function AdminTimetablePage() {
                                                 </button>
                                                 <button
                                                     onClick={() => deleteDay(i)}
-                                                    className="p-1.5 rounded-lg hover:bg-red-50 transition-colors"
+                                                    className="p-1.5 rounded-lg hover:bg-red-500/20 transition-colors"
                                                     title="Clear day"
                                                 >
                                                     <Trash2 size={16} style={{ color: "var(--color-error)" }} />
@@ -261,8 +261,8 @@ export default function AdminTimetablePage() {
                                         <span
                                             className="text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider"
                                             style={{
-                                                background: dayData.isPublished ? "#dcfce7" : "#fef3c7",
-                                                color: dayData.isPublished ? "#166534" : "#92400e",
+                                                background: dayData.isPublished ? "var(--color-success)20" : "var(--color-accent)20",
+                                                color: dayData.isPublished ? "var(--color-success)" : "var(--color-accent)",
                                             }}
                                         >
                                             {dayData.isPublished ? "Published" : "Draft"}
@@ -298,7 +298,7 @@ export default function AdminTimetablePage() {
                                             </div>
                                             <button
                                                 onClick={() => removeItemFromDay(i, item.menuItem.id)}
-                                                className="opacity-0 group-hover:opacity-100 transition-opacity p-1 hover:bg-red-100 rounded"
+                                                className="opacity-0 group-hover:opacity-100 transition-opacity p-1 hover:bg-red-500/20 rounded"
                                             >
                                                 <X size={12} style={{ color: "var(--color-error)" }} />
                                             </button>
@@ -331,7 +331,7 @@ export default function AdminTimetablePage() {
                                                     key={mi.id}
                                                     onClick={() => !alreadyAdded && addItemToDay(i, mi.id)}
                                                     disabled={alreadyAdded}
-                                                    className="w-full flex items-center gap-2 px-3 py-2 rounded-xl text-xs text-left hover:bg-gray-50 transition-colors disabled:opacity-40"
+                                                    className="w-full flex items-center gap-2 px-3 py-2 rounded-xl text-xs text-left hover:bg-white/10 transition-colors disabled:opacity-40"
                                                 >
                                                     {mi.imageUrl ? (
                                                         <img src={mi.imageUrl} alt="" className="w-6 h-6 rounded object-cover flex-shrink-0" />
