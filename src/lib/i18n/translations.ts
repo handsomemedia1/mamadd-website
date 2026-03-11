@@ -84,13 +84,16 @@ export const translations: Record<Locale, Record<string, string>> = {
         "about.badge": "🏠 Our Story",
         "about.title": "About Mama DD's",
         "about.subtitle": "A cultural gateway to African flavors, right here in Enschede",
-        "about.storyTitle": "Our Story",
-        "about.imageAlt": "Mama DD cooking authentic African food",
-
-        "about.p1": "Mama DD's is a home-cooked African kitchen based in Enschede, specialising in traditional Nigerian and other African cuisine. Behind every dish is a skilled and experienced chef whose passion for African flavours ensures each meal is crafted with authenticity and care.",
-        "about.p2": "What started as a simple desire to share the rich tastes of Africa with friends and family quickly grew into something much larger. Today, Mama DD's has become a go-to destination for anyone craving genuine African food in the Netherlands.",
-        "about.p3": "Every pot is prepared from scratch using time-honoured methods, ensuring that every bite delivers that unmistakable feeling of home. The menu strikes a perfect balance: offering both fiery, intensely spiced dishes for those who love bold flavours, and milder, well-seasoned options that comfort the soul. No matter the heat level, quality remains uncompromised—the highest grade of meats and the freshest ingredients are carefully selected to provide the best possible culinary experience.",
-        "about.p4": "Our menu features a vibrant selection of traditional staples, including Jollof rice, pounded yams, and various types of fufu, all served with richly flavoured soups like Ogbono and Egusi. Guests can choose from a range of combos and vegetarian options, often accompanied by beloved sides such as fried plantains or spicy asun meat. To complete the experience, we offer soft drinks and traditional non-alcoholic malt beverages that are cherished across African cultures.",
+        "about.storyTitle1": "About",
+        "about.storyTitle2": "Mama DD's African Kitchen",
+        "about.storyP1":
+            "Mama DD's is a home-cooked West African kitchen based in Enschede, specialising in traditional Nigerian and other African cuisine. Behind every dish is a skilled and experienced chef whose passion for African flavours ensures each meal is crafted with authenticity and care.",
+        "about.storyP2":
+            "What started as a simple desire to share the rich tastes of West Africa with friends and family quickly grew into something much larger. Today, Mama DD's has become a go-to destination for anyone craving genuine African food in the Netherlands.",
+        "about.menuTitle1": "The",
+        "about.menuTitle2": "Menu",
+        "about.menuP1":
+            "Our menu features a vibrant selection of traditional staples, including Jollof rice, pounded yams, and various types of fufu, all served with richly flavoured soups like Ogbono and Egusi. Guests can choose from a range of combos and vegetarian options, often accompanied by beloved sides such as fried plantains or spicy asun meat. To complete the experience, we offer soft drinks and traditional non-alcoholic malt beverages that are cherished across African cultures.",
         "about.val1Title": "Generous Portions",
         "about.val1Desc":
             "Our customers frequently praise Mama DD's for its generous portions and perfectly balanced spices.",
@@ -100,7 +103,7 @@ export const translations: Record<Locale, Record<string, string>> = {
         "about.val3Title": "More Than Just Meals",
         "about.val3Desc":
             "In addition to individual meals, we offer catering services, referral programs, and subscription plans for our regular customers.",
-        "about.footerText": "At Mama DD's, every dish is prepared using time-honoured recipes passed down through generations. When you dine with us, you're not just enjoying a meal, you're experiencing the warmth and taste of home.",
+        "about.footerText": "At Mama DD's, every dish is prepared using time-honoured recipes passed down through generations. When you dine with us, you're not just enjoying a meal—you're experiencing the warmth and taste of home.",
         "about.ctaTitle": "Come Taste the Difference",
         "about.ctaDesc":
             "Visit us at Waalstraat 134, Enschede — or order via WhatsApp and we'll have your meal ready for pickup.",

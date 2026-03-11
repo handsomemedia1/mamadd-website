@@ -147,6 +147,9 @@ export default function Footer() {
                         <p className="text-xs" style={{ color: "rgba(255,248,240,0.4)" }}>
                             © {new Date().getFullYear()} {t("footer.copyright")}
                         </p>
+                        <p className="text-xs" style={{ color: "rgba(255,248,240,0.4)" }}>
+                            KvK: 88468704
+                        </p>
                         {/* ── Elitech Hub Badge ── */}
                         <a
                             href="https://elitechub.com"
