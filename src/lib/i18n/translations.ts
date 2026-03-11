@@ -94,6 +94,8 @@ export const translations: Record<Locale, Record<string, string>> = {
         "about.menuTitle2": "Menu",
         "about.menuP1":
             "Our menu features a vibrant selection of traditional staples, including Jollof rice, pounded yams, and various types of fufu, all served with richly flavoured soups like Ogbono and Egusi. Guests can choose from a range of combos and vegetarian options, often accompanied by beloved sides such as fried plantains or spicy asun meat. To complete the experience, we offer soft drinks and traditional non-alcoholic malt beverages that are cherished across African cultures.",
+        "about.setsApartTitle1": "What Sets",
+        "about.setsApartTitle2": "Us Apart",
         "about.val1Title": "Generous Portions",
         "about.val1Desc":
             "Our customers frequently praise Mama DD's for its generous portions and perfectly balanced spices.",
@@ -303,6 +305,8 @@ export const translations: Record<Locale, Record<string, string>> = {
         "about.menuTitle2": "Menu",
         "about.menuP1":
             "Ons menu biedt een levendige selectie van traditionele gerechten, waaronder Jollof rijst, pounded yams en verschillende soorten fufu, allemaal geserveerd met rijk smakende soepen zoals Ogbono en Egusi. Gasten kunnen kiezen uit een reeks combo's en vegetarische opties, vaak vergezeld van geliefde bijgerechten zoals gebakken bakbanaan of pittig asun-vlees. Om de ervaring compleet te maken, bieden wij frisdranken en traditionele alcoholvrije moutdranken aan die overal in Afrikaanse culturen worden gekoesterd.",
+        "about.setsApartTitle1": "Wat Ons",
+        "about.setsApartTitle2": "Onderscheidt",
         "about.val1Title": "Ruime Porties",
         "about.val1Desc":
             "Onze klanten prijzen Mama DD's regelmatig om de gulle porties en perfect uitgebalanceerde kruiden.",

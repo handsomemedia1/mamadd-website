@@ -72,7 +72,16 @@ export default function AboutContent() {
                 </div>
             </div>
 
-            {/* Values */}
+            {/* What Sets Us Apart */}
+            <div className="text-center mb-8 animate-fade-in-up stagger-2">
+                <h2
+                    className="text-2xl md:text-3xl font-bold"
+                    style={{ fontFamily: "var(--font-heading)" }}
+                >
+                    {t("about.setsApartTitle1")}{" "}
+                    <span style={{ color: "var(--color-primary)" }}>{t("about.setsApartTitle2")}</span>
+                </h2>
+            </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
                 {[
                     { emoji: "🍲", title: t("about.val1Title"), desc: t("about.val1Desc") },
