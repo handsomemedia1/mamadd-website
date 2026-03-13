@@ -38,6 +38,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
 
     // Prevent scrolling when sidebar is open on mobile
     useEffect(() => {
+        if (typeof window === "undefined") return;
         if (isSidebarOpen && window.innerWidth < 768) {
             document.body.style.overflow = "hidden";
         } else {
