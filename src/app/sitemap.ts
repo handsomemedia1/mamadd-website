@@ -2,7 +2,8 @@ import { prisma } from "@/lib/db";
 import { MetadataRoute } from "next";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://mamadd.com";
+  // Strictly use the production domain so Google Search Console doesn't reject URLs if Vercel overrides the env var
+  const baseUrl = "https://mamadd.com";
 
   // Static pages
   const staticPages: MetadataRoute.Sitemap = [

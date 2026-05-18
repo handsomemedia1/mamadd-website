@@ -1,7 +1,7 @@
 import { MetadataRoute } from "next";
 
 export default function robots(): MetadataRoute.Robots {
-    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://mamadd.com";
+    const baseUrl = "https://mamadd.com";
 
     return {
         rules: [
@@ -12,6 +12,6 @@ export default function robots(): MetadataRoute.Robots {
             },
         ],
         sitemap: `${baseUrl}/sitemap.xml`,
-        host: baseUrl,
+        host: "mamadd.com", // Host must be a domain name, not a full URL
     };
 }
