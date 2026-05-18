@@ -107,6 +107,15 @@ export default function MenuContent({ categories }: { categories: Category[] }) 
                         {t("menu.cateringBadge")}
                     </a>
                 </div>
+                
+                {/* Allergy warning */}
+                <div className="mt-6 mb-2 mx-auto max-w-2xl bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-xl flex items-start gap-3 text-left">
+                    <span className="text-red-500 mt-0.5">⚠️</span>
+                    <div className="text-sm">
+                        <strong className="block mb-1">{t("menu.allergyWarningTitle")}</strong>
+                        {t("menu.allergyWarningDesc")}
+                    </div>
+                </div>
             </div>
 
             {/* Category Navigation */}
@@ -225,7 +234,7 @@ export default function MenuContent({ categories }: { categories: Category[] }) 
                                             </div>
                                             {item.description && (
                                                 <p
-                                                    className="text-sm leading-relaxed line-clamp-2"
+                                                    className="text-sm leading-relaxed"
                                                     style={{ color: "var(--color-text-muted)" }}
                                                 >
                                                     {item.description}

@@ -101,7 +101,7 @@ export default function Footer() {
                             <div className="flex items-start gap-3">
                                 <MapPin size={18} className="flex-shrink-0 mt-0.5" style={{ color: "var(--color-primary-light)" }} />
                                 <span className="text-sm" style={{ color: "rgba(255,248,240,0.7)" }}>
-                                    Waalstraat 134, 7523 RM<br />Enschede, Netherlands
+                                    Waalstraat, 7523 RM<br />Enschede, Netherlands
                                 </span>
                             </div>
                             <div className="flex items-start gap-3">
@@ -147,9 +147,13 @@ export default function Footer() {
                         <p className="text-xs" style={{ color: "rgba(255,248,240,0.4)" }}>
                             © {new Date().getFullYear()} {t("footer.copyright")}
                         </p>
-                        <p className="text-xs" style={{ color: "rgba(255,248,240,0.4)" }}>
-                            KvK: 88468704
-                        </p>
+                        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg border border-white/10" style={{ background: "rgba(255,255,255,0.05)" }}>
+                            <Shield size={14} style={{ color: "var(--color-primary)" }} />
+                            <div className="flex flex-col">
+                                <span className="text-[9px] font-bold tracking-widest text-white/50 leading-none">KVK VERIFIED</span>
+                                <span className="text-sm font-mono text-white/90 font-medium leading-tight">88468704</span>
+                            </div>
+                        </div>
                         {/* ── Elitech Hub Badge ── */}
                         <a
                             href="https://elitechub.com"

@@ -107,7 +107,7 @@ export default function ContactContent() {
                         <div>
                             <h3 className="font-semibold mb-1" style={{ fontFamily: "var(--font-heading)" }}>{t("contact.addressTitle")}</h3>
                             <p className="text-sm" style={{ color: "var(--color-text-muted)" }}>
-                                Waalstraat 134<br />
+                                Waalstraat<br />
                                 7523 RM Enschede<br />
                                 Netherlands
                             </p>

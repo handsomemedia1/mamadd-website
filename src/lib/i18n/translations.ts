@@ -61,7 +61,7 @@ export const translations: Record<Locale, Record<string, string>> = {
         "home.findTitle": "Find Us",
         "home.findSubtitle": "Visit us in the heart of Enschede",
         "home.address": "Address",
-        "home.addressValue": "Waalstraat 134, 7523 RM Enschede, Netherlands",
+        "home.addressValue": "Waalstraat, 7523 RM Enschede, Netherlands",
         "home.openingHours": "Opening Hours",
         "home.tueThu": "Tue – Thu: 6:00 PM – 8:00 PM",
         "home.sat": "Saturday: 6:00 PM – 8:00 PM",
@@ -79,6 +79,13 @@ export const translations: Record<Locale, Record<string, string>> = {
         "home.ctaDesc": "Order your favorite dishes now and experience authentic African flavors, made fresh just for you.",
         "home.ctaMenu": "View Our Menu",
         "home.ctaWhatsApp": "💬 WhatsApp Order",
+        
+        // ── Personalised Cooking Training ──
+        "home.trainingBadge": "👩‍🍳 Cooking Classes",
+        "home.trainingTitle1": "Personalised",
+        "home.trainingTitle2": "Cooking Training",
+        "home.trainingDesc": "Want to learn how to cook authentic African dishes? Mama DD offers personalised cooking training! Learn the secrets behind our delicious Jollof rice, perfectly spiced soups, and more. Contact us to book your private session.",
+        "home.trainingCTA": "💬 Book Training on WhatsApp",
 
         // ── About Page ──
         "about.badge": "🏠 Our Story",
@@ -108,7 +115,7 @@ export const translations: Record<Locale, Record<string, string>> = {
         "about.footerText": "At Mama DD's, every dish is prepared using time-honoured recipes passed down through generations. When you dine with us, you're not just enjoying a meal—you're experiencing the warmth and taste of home.",
         "about.ctaTitle": "Come Taste the Difference",
         "about.ctaDesc":
-            "Visit us at Waalstraat 134, Enschede — or order via WhatsApp and we'll have your meal ready for pickup.",
+            "Visit us at Waalstraat, Enschede — or order via WhatsApp and we'll have your meal ready for pickup.",
         "about.ctaMenu": "View Menu",
         "about.ctaWhatsApp": "💬 WhatsApp Us",
 
@@ -150,6 +157,8 @@ export const translations: Record<Locale, Record<string, string>> = {
             "Prices may vary. Pickup & delivery available in Enschede.",
         "menu.cateringNote":
             "For catering and large party orders, contact us via WhatsApp or email.",
+        "menu.allergyWarningTitle": "Food Allergies & Intolerances",
+        "menu.allergyWarningDesc": "Please discuss any food allergies or intolerances with us before ordering. Let us know in your WhatsApp message or email notes!",
 
         // ── Footer ──
         "cart.title": "Your Order",
@@ -270,7 +279,7 @@ export const translations: Record<Locale, Record<string, string>> = {
         "home.findTitle": "Vind Ons",
         "home.findSubtitle": "Bezoek ons in het hart van Enschede",
         "home.address": "Adres",
-        "home.addressValue": "Waalstraat 134, 7523 RM Enschede, Nederland",
+        "home.addressValue": "Waalstraat, 7523 RM Enschede, Nederland",
         "home.openingHours": "Openingstijden",
         "home.tueThu": "Di – Do: 18:00 – 20:00",
         "home.sat": "Zaterdag: 18:00 – 20:00",
@@ -289,6 +298,13 @@ export const translations: Record<Locale, Record<string, string>> = {
             "Bestel nu je favoriete gerechten en ervaar authentieke West-Afrikaanse smaken, vers voor jou bereid.",
         "home.ctaMenu": "Bekijk Ons Menu",
         "home.ctaWhatsApp": "💬 WhatsApp Bestelling",
+
+        // ── Personalised Cooking Training ──
+        "home.trainingBadge": "👩‍🍳 Kooklessen",
+        "home.trainingTitle1": "Gepersonaliseerde",
+        "home.trainingTitle2": "Kooktraining",
+        "home.trainingDesc": "Wil je leren hoe je authentieke Afrikaanse gerechten kookt? Mama DD biedt gepersonaliseerde kooktrainingen aan! Leer de geheimen achter onze heerlijke Jollof rijst, perfect gekruide soepen en meer. Neem contact met ons op om je privésessie te boeken.",
+        "home.trainingCTA": "💬 Boek Training via WhatsApp",
 
         // ── About Page ──
         "about.badge": "🏠 Ons Verhaal",
@@ -319,7 +335,7 @@ export const translations: Record<Locale, Record<string, string>> = {
         "about.footerText": "Bij Mama DD's wordt elk gerecht bereid volgens eeuwenoude recepten die van generatie op generatie zijn doorgegeven. Als je bij ons dineert, geniet je niet alleen van een maaltijd, je ervaart de warmte en smaak van thuis.",
         "about.ctaTitle": "Kom het Verschil Proeven",
         "about.ctaDesc":
-            "Bezoek ons op Waalstraat 134, Enschede — of bestel via WhatsApp en we maken je maaltijd klaar voor afhalen.",
+            "Bezoek ons op Waalstraat, Enschede — of bestel via WhatsApp en we maken je maaltijd klaar voor afhalen.",
         "about.ctaMenu": "Bekijk Menu",
         "about.ctaWhatsApp": "💬 WhatsApp Ons",
 
@@ -365,6 +381,8 @@ export const translations: Record<Locale, Record<string, string>> = {
             "Prijzen kunnen variëren. Afhalen & bezorgen beschikbaar in Enschede.",
         "menu.cateringNote":
             "Voor catering en grote feestbestellingen, neem contact op via WhatsApp of e-mail.",
+        "menu.allergyWarningTitle": "Voedselallergieën & Intoleranties",
+        "menu.allergyWarningDesc": "Bespreek eventuele voedselallergieën of intoleranties met ons voordat je bestelt. Laat het ons weten in je WhatsApp-bericht of e-mail notities!",
 
         // ── Footer ──
         "footer.brandDesc":

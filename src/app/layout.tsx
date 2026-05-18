@@ -10,34 +10,44 @@ const poppins = {
 };
 
 export const metadata: Metadata = {
-  title: "Mama DD's African Kitchen | Authentic Food in Enschede",
+  title: "Mama DD's African Kitchen | Authentic Food in Enschede, Netherlands",
   description:
-    "The first authentic homemade African food in Enschede. Order Jollof Rice, Egusi, Fufu, and more traditional African dishes. Order via WhatsApp!",
+    "The first authentic homemade African food in Enschede, Netherlands. Order Jollof Rice, Egusi, Fufu, and more traditional African dishes. Proudly serving the local community and visitors from the UK and Europe. Order via WhatsApp!",
   keywords: [
     "African Food",
     "Enschede",
+    "Netherlands",
+    "Europe",
+    "UK",
     "Nigerian Cuisine",
     "Jollof Rice",
     "Fufu",
     "Egusi",
     "Enschede Food",
-    "African Food",
+    "African Restaurant Netherlands",
     "Delivery",
     "Homemade Meals",
     "Nigerian Food Netherlands",
+    "African Food Europe",
   ],
   authors: [{ name: "Mama DD's African Kitchen" }],
   openGraph: {
     type: "website",
     locale: "en_NL",
     siteName: "Mama DD's African Kitchen",
-    title: "Mama DD's | Authentic African Food in Enschede",
+    title: "Mama DD's | Authentic African Food in Enschede, Netherlands",
     description:
-      "The first authentic homemade African food in Enschede. Order Jollof Rice, Egusi, Fufu, and more!",
+      "The first authentic homemade African food in Enschede, Netherlands. Serving authentic Nigerian cuisine to the local community and visitors from across Europe and the UK.",
   },
   robots: {
     index: true,
     follow: true,
+  },
+  verification: {
+    google: "lXterEFBi6yAp0XXr9epiRbjMkNVq5mFLcDo5ImNPVg",
+    other: {
+      "msvalidate.01": "8967B07B23704F7994FA081CCEC551B5",
+    },
   },
 };
 
@@ -50,7 +60,7 @@ const restaurantSchema = {
   servesCuisine: ["African", "Nigerian"],
   address: {
     "@type": "PostalAddress",
-    streetAddress: "Waalstraat 134",
+    streetAddress: "Waalstraat",
     addressLocality: "Enschede",
     postalCode: "7523 RM",
     addressCountry: "NL",

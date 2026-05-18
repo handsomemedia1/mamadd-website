@@ -217,6 +217,46 @@ export default function HomeContent() {
                 </div>
             </section>
 
+            {/* ===== PERSONALISED COOKING TRAINING ===== */}
+            <section className="py-16 px-6">
+                <div className="max-w-5xl mx-auto">
+                    <div className="clay-card overflow-hidden" style={{ background: "var(--color-cream)", border: "1px solid rgba(213,94,23,0.1)" }}>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-0 items-stretch flex-col-reverse md:flex-row">
+                            <div className="relative flex items-center justify-center p-10 md:p-12 border-b md:border-b-0 md:border-r" style={{ borderColor: "rgba(213,94,23,0.1)", background: "linear-gradient(135deg, rgba(213,94,23,0.02), rgba(213,94,23,0.08))", minHeight: "320px" }}>
+                                <div className="absolute inset-0 opacity-10" style={{ backgroundImage: "radial-gradient(var(--color-primary) 1px, transparent 1px)", backgroundSize: "20px 20px" }} />
+                                <div className="relative flex items-center justify-center">
+                                    <div className="absolute rounded-full" style={{ width: "220px", height: "220px", background: "rgba(255,255,255,0.4)", border: "1px solid rgba(255,255,255,0.6)" }} />
+                                    <div className="absolute rounded-full" style={{ width: "160px", height: "160px", background: "rgba(255,255,255,0.6)", border: "1px solid rgba(255,255,255,0.8)" }} />
+                                    <div className="relative z-10 w-16 h-16 rounded-2xl flex items-center justify-center text-3xl"
+                                        style={{ background: "white", boxShadow: "0 8px 24px rgba(213,94,23,0.15)" }}>
+                                        👩‍🍳
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="p-10 md:p-12 flex flex-col justify-center">
+                                <div className="clay-badge inline-flex mb-4 px-4 py-2 w-fit"
+                                    style={{ background: "rgba(213,94,23,0.1)", color: "var(--color-primary)" }}>
+                                    {t("home.trainingBadge")}
+                                </div>
+                                <h2 className="text-3xl md:text-4xl font-bold mb-4 leading-tight" style={{ fontFamily: "var(--font-heading)" }}>
+                                    {t("home.trainingTitle1")} <span style={{ color: "var(--color-primary)" }}>{t("home.trainingTitle2")}</span>
+                                </h2>
+                                <p className="leading-relaxed mb-8" style={{ color: "var(--color-text-muted)" }}>
+                                    {t("home.trainingDesc")}
+                                </p>
+                                <a
+                                    href={`https://wa.me/31612988455?text=${encodeURIComponent("Hi Mama DD! 👋 I'm interested in the Personalised Cooking Training. Could you give me more details?")}`}
+                                    target="_blank" rel="noopener noreferrer"
+                                    className="clay-button clay-button-whatsapp inline-flex items-center gap-2 px-6 py-4 rounded-2xl font-bold text-sm transition-all hover:scale-105 w-fit"
+                                >
+                                    {t("home.trainingCTA")}
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             {/* ===== LOCATION & HOURS ===== */}
             <section className="py-20 px-6">
                 <div className="max-w-6xl mx-auto">

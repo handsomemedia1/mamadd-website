@@ -27,6 +27,8 @@ type CartContextType = {
     setCustomerEmail: (email: string) => void;
     customerPhone: string;
     setCustomerPhone: (phone: string) => void;
+    customerAllergies: string;
+    setCustomerAllergies: (allergies: string) => void;
 };
 
 const CartContext = createContext<CartContextType | null>(null);
@@ -40,6 +42,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
     const [orderType, setOrderType] = useState<OrderType>("pickup");
     const [customerEmail, setCustomerEmail] = useState("");
     const [customerPhone, setCustomerPhone] = useState("");
+    const [customerAllergies, setCustomerAllergies] = useState("");
 
     // Load from localStorage on mount
     useEffect(() => {
@@ -90,6 +93,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
         setOrderType("pickup");
         setCustomerEmail("");
         setCustomerPhone("");
+        setCustomerAllergies("");
     }, []);
 
     const totalItems = items.reduce((sum, i) => sum + i.quantity, 0);
@@ -113,6 +117,8 @@ export function CartProvider({ children }: { children: ReactNode }) {
                 setCustomerEmail,
                 customerPhone,
                 setCustomerPhone,
+                customerAllergies,
+                setCustomerAllergies,
             }}
         >
             {children}
@@ -131,7 +137,8 @@ export function generateWhatsAppMessage(
     total: number,
     orderType: OrderType = "pickup",
     customerEmail?: string,
-    customerPhone?: string
+    customerPhone?: string,
+    customerAllergies?: string
 ): string {
     const typeLabel = orderType === "catering" ? "🎉 CATERING / BIG ORDER" : "🛍️ PICKUP ORDER";
     let msg = `Hi Mama DD's! 🍲\n\n${typeLabel}\nI'd like to place an order:\n\n`;
@@ -146,6 +153,9 @@ export function generateWhatsAppMessage(
     if (customerPhone) {
         msg += `\n📞 Phone: ${customerPhone}`;
     }
+    if (customerAllergies) {
+        msg += `\n⚠️ Allergies/Notes: ${customerAllergies}`;
+    }
 
     if (orderType === "catering") {
         msg += `\n\nThis is a catering / party order. Please let me know about availability and pricing for large orders. Thank you! 🙏`;
@@ -159,7 +169,8 @@ export function generateEmailBody(
     items: CartItem[],
     total: number,
     orderType: OrderType = "pickup",
-    customerPhone?: string
+    customerPhone?: string,
+    customerAllergies?: string
 ): string {
     const typeLabel = orderType === "catering" ? "CATERING / BIG ORDER" : "PICKUP ORDER";
     let msg = `${typeLabel}\n\nItems:\n`;
@@ -169,6 +180,9 @@ export function generateEmailBody(
     msg += `\nTotal: €${total.toFixed(2)}`;
     if (customerPhone) {
         msg += `\nPhone: ${customerPhone}`;
+    }
+    if (customerAllergies) {
+        msg += `\nAllergies/Notes: ${customerAllergies}`;
     }
     if (orderType === "catering") {
         msg += `\n\nThis is a catering / party order. Please let me know about availability and pricing.`;
@@ -183,9 +197,10 @@ export function getWhatsAppUrl(
     total: number,
     orderType: OrderType = "pickup",
     customerEmail?: string,
-    customerPhone?: string
+    customerPhone?: string,
+    customerAllergies?: string
 ): string {
-    const message = generateWhatsAppMessage(items, total, orderType, customerEmail, customerPhone);
+    const message = generateWhatsAppMessage(items, total, orderType, customerEmail, customerPhone, customerAllergies);
     return `https://wa.me/31612988455?text=${encodeURIComponent(message)}`;
 }
 
@@ -193,11 +208,12 @@ export function getEmailUrl(
     items: CartItem[],
     total: number,
     orderType: OrderType = "pickup",
-    customerPhone?: string
+    customerPhone?: string,
+    customerAllergies?: string
 ): string {
     const subject = orderType === "catering"
         ? "Catering Order — Mama DD's African Kitchen"
         : "Pickup Order — Mama DD's African Kitchen";
-    const body = generateEmailBody(items, total, orderType, customerPhone);
+    const body = generateEmailBody(items, total, orderType, customerPhone, customerAllergies);
     return `mailto:ddoptimistic@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 }

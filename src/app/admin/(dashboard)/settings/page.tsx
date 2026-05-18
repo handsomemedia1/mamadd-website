@@ -48,7 +48,7 @@ export default async function AdminSettingsPage() {
                     <div className="space-y-3 text-sm" style={{ color: "var(--color-text-muted)" }}>
                         {[
                             { label: "Name", value: "Mama DD's African Kitchen" },
-                            { label: "Address", value: "Waalstraat 134, Enschede, NL" },
+                            { label: "Address", value: "Waalstraat, Enschede, NL" },
                             { label: "Phone", value: "+31 6 12988455" },
                             { label: "Hours", value: "Tue–Thu, Sat: 18:00–20:00" },
                             { label: "KvK / COC", value: "Add via Legal section" },

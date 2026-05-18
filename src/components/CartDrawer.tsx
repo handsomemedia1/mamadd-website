@@ -9,6 +9,7 @@ export default function CartDrawer() {
         items, isOpen, setIsOpen, updateQuantity, removeItem, clearCart,
         totalItems, totalPrice, orderType, setOrderType,
         customerEmail, setCustomerEmail, customerPhone, setCustomerPhone,
+        customerAllergies, setCustomerAllergies,
     } = useCart();
 
     if (!isOpen) return null;
@@ -85,7 +86,10 @@ export default function CartDrawer() {
                                     >
                                         <Minus size={14} />
                                     </button>
-                                    <span className="w-8 text-center font-bold text-sm">{item.quantity}</span>
+                                    <div className="flex flex-col items-center">
+                                        <span className="w-8 text-center font-bold text-sm">{item.quantity}</span>
+                                        <span className="text-[9px] text-gray-500 font-semibold uppercase leading-none mt-0.5">Portions</span>
+                                    </div>
                                     <button
                                         onClick={() => updateQuantity(item.id, item.quantity + 1)}
                                         className="w-8 h-8 rounded-xl flex items-center justify-center transition-colors"
@@ -147,6 +151,15 @@ export default function CartDrawer() {
                             </div>
                         </div>
 
+                        {/* Allergy warning */}
+                        <div className="bg-red-50 border border-red-200 text-red-700 px-3 py-2 rounded-xl flex items-start gap-2 text-left mb-1">
+                            <span className="text-red-500 mt-0.5">⚠️</span>
+                            <div className="text-xs">
+                                <strong>Food Allergies?</strong>
+                                <p>Please let us know in the notes below before ordering!</p>
+                            </div>
+                        </div>
+
                         {/* Contact details */}
                         <div className="space-y-2">
                             <p className="text-xs font-semibold" style={{ color: "var(--color-text-muted)" }}>
@@ -168,6 +181,13 @@ export default function CartDrawer() {
                                 className="w-full px-3 py-2 rounded-xl text-sm"
                                 style={{ border: "2px solid var(--color-accent-light)", outline: "none", background: "white" }}
                             />
+                            <textarea
+                                value={customerAllergies}
+                                onChange={(e) => setCustomerAllergies(e.target.value)}
+                                placeholder="Any allergies or special instructions?"
+                                className="w-full px-3 py-2 rounded-xl text-sm min-h-[60px] resize-none"
+                                style={{ border: "2px solid var(--color-accent-light)", outline: "none", background: "white" }}
+                            />
                         </div>
 
                         {/* Total */}
@@ -185,7 +205,7 @@ export default function CartDrawer() {
                         <div className="space-y-2">
                             {/* WhatsApp Button */}
                             <a
-                                href={getWhatsAppUrl(items, totalPrice, orderType, customerEmail, customerPhone)}
+                                href={getWhatsAppUrl(items, totalPrice, orderType, customerEmail, customerPhone, customerAllergies)}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="clay-button clay-button-whatsapp w-full flex items-center justify-center gap-2 text-base py-4"
@@ -200,9 +220,22 @@ export default function CartDrawer() {
 
                             {/* Email Button */}
                             <a
-                                href={getEmailUrl(items, totalPrice, orderType, customerPhone)}
+                                href={getEmailUrl(items, totalPrice, orderType, customerPhone, customerAllergies)}
                                 className="clay-button clay-button-outline w-full flex items-center justify-center gap-2 text-sm py-3"
                                 onClick={() => {
+                                    // Fire WhatsApp notification to owner in the background
+                                    fetch("/api/notify-order", {
+                                        method: "POST",
+                                        headers: { "Content-Type": "application/json" },
+                                        body: JSON.stringify({
+                                            items,
+                                            total: totalPrice,
+                                            orderType,
+                                            customerEmail,
+                                            customerPhone,
+                                            customerAllergies,
+                                        }),
+                                    }).catch(() => {}); // fire-and-forget
                                     clearCart();
                                     setIsOpen(false);
                                 }}
