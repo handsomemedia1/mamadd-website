@@ -145,8 +145,12 @@ export function generateWhatsAppMessage(
     items.forEach((item) => {
         msg += `• ${item.name} x${item.quantity} — €${(item.price * item.quantity).toFixed(2)}\n`;
     });
-    msg += `\n💰 Total: €${total.toFixed(2)}`;
+    const btw = total * 0.09;
+    const totalWithBtw = total + btw;
 
+    msg += `\nSubtotal: €${total.toFixed(2)}`;
+    msg += `\nBTW (9%): €${btw.toFixed(2)}`;
+    msg += `\n💰 Total: €${totalWithBtw.toFixed(2)}`;
     if (customerEmail) {
         msg += `\n📧 Email: ${customerEmail}`;
     }
@@ -177,7 +181,12 @@ export function generateEmailBody(
     items.forEach((item) => {
         msg += `• ${item.name} x${item.quantity} — €${(item.price * item.quantity).toFixed(2)}\n`;
     });
-    msg += `\nTotal: €${total.toFixed(2)}`;
+    const btw = total * 0.09;
+    const totalWithBtw = total + btw;
+
+    msg += `\nSubtotal: €${total.toFixed(2)}`;
+    msg += `\nBTW (9%): €${btw.toFixed(2)}`;
+    msg += `\nTotal: €${totalWithBtw.toFixed(2)}`;
     if (customerPhone) {
         msg += `\nPhone: ${customerPhone}`;
     }

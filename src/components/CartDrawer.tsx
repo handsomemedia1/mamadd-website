@@ -190,14 +190,26 @@ export default function CartDrawer() {
                             />
                         </div>
 
+                        {/* Subtotal & BTW */}
+                        <div className="space-y-1 mb-2 border-b pb-2" style={{ borderColor: "var(--color-border)" }}>
+                            <div className="flex justify-between items-center text-sm" style={{ color: "var(--color-text-muted)" }}>
+                                <span>Subtotal</span>
+                                <span>€{totalPrice.toFixed(2)}</span>
+                            </div>
+                            <div className="flex justify-between items-center text-sm" style={{ color: "var(--color-text-muted)" }}>
+                                <span>BTW (9%)</span>
+                                <span>€{(totalPrice * 0.09).toFixed(2)}</span>
+                            </div>
+                        </div>
+
                         {/* Total */}
-                        <div className="flex justify-between items-center">
+                        <div className="flex justify-between items-center mb-4">
                             <span className="font-medium">Total</span>
                             <span
                                 className="text-2xl font-bold"
                                 style={{ fontFamily: "var(--font-heading)", color: "var(--color-primary-dark)" }}
                             >
-                                €{totalPrice.toFixed(2)}
+                                €{(totalPrice * 1.09).toFixed(2)}
                             </span>
                         </div>
 
@@ -229,7 +241,7 @@ export default function CartDrawer() {
                                         headers: { "Content-Type": "application/json" },
                                         body: JSON.stringify({
                                             items,
-                                            total: totalPrice,
+                                            total: totalPrice * 1.09,
                                             orderType,
                                             customerEmail,
                                             customerPhone,
