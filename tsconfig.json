@@ -30,5 +30,5 @@
     ".next/dev/types/**/*.ts",
     "**/*.mts"
   ],
-  "exclude": ["node_modules", "prisma/seed.ts"]
+  "exclude": ["node_modules", "prisma/seed.ts", "add-new-items.ts", "add-rice-beans.ts", "update-db.ts", "scripts/**/*.ts"]
 }
