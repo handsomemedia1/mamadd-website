@@ -4,6 +4,8 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { ArrowLeft, Calendar, Clock } from "lucide-react";
 import ShareButtons from "@/components/ShareButtons";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -43,68 +45,7 @@ export default async function BlogPostPage({ params }: Props) {
 
     if (!post || !post.published) notFound();
 
-    // Simple markdown-ish rendering: paragraphs, headings, bold, italic, lists
-    const renderContent = (content: string) => {
-        return content.split("\n\n").map((block, i) => {
-            const trimmed = block.trim();
-            if (!trimmed) return null;
 
-            // Heading
-            if (trimmed.startsWith("### "))
-                return (
-                    <h3
-                        key={i}
-                        className="text-xl font-bold mt-8 mb-3"
-                        style={{ fontFamily: "var(--font-heading)" }}
-                    >
-                        {trimmed.slice(4)}
-                    </h3>
-                );
-            if (trimmed.startsWith("## "))
-                return (
-                    <h2
-                        key={i}
-                        className="text-2xl font-bold mt-10 mb-4"
-                        style={{ fontFamily: "var(--font-heading)" }}
-                    >
-                        {trimmed.slice(3)}
-                    </h2>
-                );
-            if (trimmed.startsWith("# "))
-                return (
-                    <h2
-                        key={i}
-                        className="text-2xl font-bold mt-10 mb-4"
-                        style={{ fontFamily: "var(--font-heading)" }}
-                    >
-                        {trimmed.slice(2)}
-                    </h2>
-                );
-
-            // Unordered list
-            if (trimmed.startsWith("- ") || trimmed.startsWith("* ")) {
-                const items = trimmed.split("\n").map((line) => line.replace(/^[-*]\s*/, ""));
-                return (
-                    <ul key={i} className="list-disc list-inside space-y-1 my-4" style={{ color: "var(--color-text-light)" }}>
-                        {items.map((item, j) => (
-                            <li key={j}>{item}</li>
-                        ))}
-                    </ul>
-                );
-            }
-
-            // Paragraph
-            return (
-                <p
-                    key={i}
-                    className="leading-relaxed my-4"
-                    style={{ color: "var(--color-text-light)" }}
-                >
-                    {trimmed}
-                </p>
-            );
-        });
-    };
 
     const postUrl = `https://mamadd.com/blog/${slug}`;
 
@@ -200,7 +141,24 @@ export default async function BlogPostPage({ params }: Props) {
                 />
 
                 {/* Content */}
-                <div className="prose-mama">{renderContent(post.content)}</div>
+                <div className="prose-mama">
+                    <ReactMarkdown
+                        remarkPlugins={[remarkGfm]}
+                        components={{
+                            h2: ({ node, ...props }) => <h2 className="text-2xl font-bold mt-10 mb-4" style={{ fontFamily: "var(--font-heading)" }} {...props} />,
+                            h3: ({ node, ...props }) => <h3 className="text-xl font-bold mt-8 mb-3" style={{ fontFamily: "var(--font-heading)" }} {...props} />,
+                            h4: ({ node, ...props }) => <h4 className="text-lg font-bold mt-6 mb-2" style={{ fontFamily: "var(--font-heading)" }} {...props} />,
+                            p: ({ node, ...props }) => <p className="leading-relaxed my-4" style={{ color: "var(--color-text-light)" }} {...props} />,
+                            ul: ({ node, ...props }) => <ul className="list-disc list-inside space-y-1 my-4" style={{ color: "var(--color-text-light)" }} {...props} />,
+                            ol: ({ node, ...props }) => <ol className="list-decimal list-inside space-y-1 my-4" style={{ color: "var(--color-text-light)" }} {...props} />,
+                            li: ({ node, ...props }) => <li className="ml-4" {...props} />,
+                            strong: ({ node, ...props }) => <strong className="font-bold text-white" {...props} />,
+                            a: ({ node, ...props }) => <a className="hover:underline" style={{ color: "var(--color-primary-light)" }} {...props} />,
+                        }}
+                    >
+                        {post.content}
+                    </ReactMarkdown>
+                </div>
 
                 {/* Share Buttons */}
                 <div className="mt-8 mb-8">
