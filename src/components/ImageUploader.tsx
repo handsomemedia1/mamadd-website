@@ -110,11 +110,9 @@ export default function ImageUploader({
                         onChange={handleFilePick}
                         id={`file-pick-${name}`}
                     />
-                    <button
-                        type="button"
-                        onClick={() => fileRef.current?.click()}
-                        disabled={uploading}
-                        className="clay-button clay-button-outline w-full text-sm py-3 flex items-center justify-center gap-2"
+                    <label
+                        htmlFor={uploading ? undefined : `file-pick-${name}`}
+                        className={`clay-button clay-button-outline w-full text-sm py-3 flex items-center justify-center gap-2 ${uploading ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}`}
                         style={{ borderStyle: "dashed" }}
                     >
                         {uploading ? (
@@ -128,7 +126,7 @@ export default function ImageUploader({
                                 {url ? "Replace image" : "Choose from device"}
                             </>
                         )}
-                    </button>
+                    </label>
                     <p className="text-xs mt-1" style={{ color: "var(--color-text-muted)" }}>
                         JPEG, PNG, WebP · max 5 MB
                     </p>

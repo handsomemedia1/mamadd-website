@@ -86,8 +86,8 @@ function LegalFormModal({
                         </select>
                     </div>
                     <div>
-                        <label className="text-sm font-medium mb-1 block">Content *</label>
-                        <textarea name="content" defaultValue={page?.content} required className="clay-input w-full" rows={12} placeholder="Page content... (Markdown supported)" />
+                        <label className="text-sm font-medium mb-1 block">Content * (Markdown Supported)</label>
+                        <textarea name="content" defaultValue={page?.content} required className="clay-input w-full" rows={25} placeholder="Write the complete legal document here. You can use markdown (e.g., # Heading, **bold**, - list)." />
                     </div>
                     <label className="flex items-center gap-2 text-sm cursor-pointer">
                         <input type="checkbox" name="isActive" defaultChecked={page?.isActive ?? true} className="rounded" />

@@ -1,0 +1,127 @@
+[
+  {
+    "id": "cmlxpedn600027gywff2lvfbx",
+    "name": "Ogbono Soup",
+    "imageUrl": "/menu/ogbono-soup.png"
+  },
+  {
+    "id": "cmlxpef1u00097gywnmile30r",
+    "name": "Semolina (Semo) + Soup + Beef/Chicken/Fish",
+    "imageUrl": "/menu/semolina-semo.png"
+  },
+  {
+    "id": "cmmnehvy8000004jttvqzkgso",
+    "name": "Poundo Yam (Fufu) + Soup + Beef/Chicken/Fish",
+    "imageUrl": null
+  },
+  {
+    "id": "cmlxpefg2000b7gywecsrnscz",
+    "name": "Boli (Roasted Plantain)",
+    "imageUrl": "/menu/boli-roasted-plantain.png"
+  },
+  {
+    "id": "cmlxpeegg00067gyw2ntlfpwb",
+    "name": "Jollof Spaghetti",
+    "imageUrl": "/food-spread.png"
+  },
+  {
+    "id": "cmlxpedfx00017gywiiskaczz",
+    "name": "Egusi Soup",
+    "imageUrl": "/menu/egusi-soup.png"
+  },
+  {
+    "id": "cmlxpefmz000c7gywzhaho15f",
+    "name": "Asun (Peppered Meat)",
+    "imageUrl": "/menu/asun-peppered-goat.png"
+  },
+  {
+    "id": "cmtx7izhq000005jnngrmit05",
+    "name": "Yam + Fried Egg Sauce",
+    "imageUrl": null
+  },
+  {
+    "id": "cmtx7q34i000104kyc5w7tl7a",
+    "name": "Beans + Sweet Corn",
+    "imageUrl": null
+  },
+  {
+    "id": "cmlxpegf2000g7gywnwpocv64",
+    "name": "Plantain & Asun Combo",
+    "imageUrl": "/menu/plantain-asun-combo.png"
+  },
+  {
+    "id": "cmtx7l82p000004l2b5c8awxn",
+    "name": "Rice + Beans + Fried Plantain",
+    "imageUrl": null
+  },
+  {
+    "id": "cmlxpeftz000d7gyw1yz4z1uu",
+    "name": "Peppered Meat",
+    "imageUrl": "/menu/peppered-meat.png"
+  },
+  {
+    "id": "cmlxpeg11000e7gyw3c0ff0o1",
+    "name": "Grilled Chicken",
+    "imageUrl": "/menu/grilled-chicken.png"
+  },
+  {
+    "id": "cmlxpee1q00047gyw85kswnrs",
+    "name": "Ewedu Soup",
+    "imageUrl": "/food-bowls.png"
+  },
+  {
+    "id": "cmlxpeduf00037gywix3wyqof",
+    "name": "Fish Peppersoup",
+    "imageUrl": "/food-bowls.png"
+  },
+  {
+    "id": "cmlxpee9600057gywtupxgpmd",
+    "name": "Jollof Rice",
+    "imageUrl": "/menu/jollof-rice.png"
+  },
+  {
+    "id": "cmlxpeeuq00087gyw0g7q45fa",
+    "name": "Amala + Soup + Beef/Chicken/Fish",
+    "imageUrl": "/menu/amala.png"
+  },
+  {
+    "id": "cmlxpef94000a7gyw6mfjip27",
+    "name": "Fried Plantain",
+    "imageUrl": "/menu/fried-plantain.png"
+  },
+  {
+    "id": "cmtx7mxtc000004jv50qt8zvk",
+    "name": "Jollof Beans + Fried Plantain",
+    "imageUrl": null
+  },
+  {
+    "id": "cmlxpeeni00077gywwt6886fw",
+    "name": "Eba/Garri (Fufu) + Soup + Beef/Chicken/Fish",
+    "imageUrl": "/menu/eba-garri.png"
+  },
+  {
+    "id": "cmmnfa7rc000004l12bb68q2b",
+    "name": "Banku (Ghanaian Fufu) + Soup + Beef/Chicken/Fish",
+    "imageUrl": null
+  },
+  {
+    "id": "cmlxpeg7z000f7gywznmibcyr",
+    "name": "Jollof Combo",
+    "imageUrl": "/menu/jollof-combo.png"
+  },
+  {
+    "id": "cmtx7sonx000104l2grbt9bt0",
+    "name": "Beans + Yam / Potatoes",
+    "imageUrl": null
+  },
+  {
+    "id": "cmtx74tn5000004jnpnu1x7ks",
+    "name": "Plantain Fufu",
+    "imageUrl": null
+  },
+  {
+    "id": "cmtx7ykv0000104jvch5gqs7r",
+    "name": "Fried Rice",
+    "imageUrl": null
+  }
+]

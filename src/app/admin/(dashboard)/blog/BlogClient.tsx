@@ -124,32 +124,59 @@ function PostFormModal({
                         className="clay-section p-4"
                         style={{ background: "var(--color-cream)" }}
                     >
-                        <h4 className="text-sm font-bold mb-3">SEO Settings</h4>
-                        <div className="space-y-3">
-                            <div>
-                                <label className="text-xs font-medium mb-1 block">
-                                    Meta Title
+                        <details>
+                            <summary className="text-sm font-bold cursor-pointer">Advanced SEO & Content Cluster</summary>
+                            <div className="space-y-3 mt-3 pt-3 border-t border-gray-200">
+                                <div>
+                                    <label className="text-xs font-medium mb-1 block">Meta Title</label>
+                                    <input name="metaTitle" defaultValue={post?.metaTitle ?? ""} className="clay-input w-full text-sm" placeholder="Custom SEO title" />
+                                </div>
+                                <div>
+                                    <label className="text-xs font-medium mb-1 block">Meta Description</label>
+                                    <textarea name="metaDescription" defaultValue={post?.metaDescription ?? ""} className="clay-input w-full text-sm" rows={2} placeholder="Custom SEO description" />
+                                </div>
+                                <div>
+                                    <label className="text-xs font-medium mb-1 block">Cover Image Alt Text</label>
+                                    <input name="coverImageAlt" defaultValue={(post as any)?.coverImageAlt ?? ""} className="clay-input w-full text-sm" placeholder="Describe the image for accessibility" />
+                                </div>
+                                <div className="grid grid-cols-2 gap-3">
+                                    <div>
+                                        <label className="text-xs font-medium mb-1 block">Primary Keyword</label>
+                                        <input name="primaryKeyword" defaultValue={(post as any)?.primaryKeyword ?? ""} className="clay-input w-full text-sm" placeholder="e.g. Nigerian food Enschede" />
+                                    </div>
+                                    <div>
+                                        <label className="text-xs font-medium mb-1 block">Secondary Keywords (comma separated)</label>
+                                        <input name="secondaryKeywords" defaultValue={(post as any)?.secondaryKeywords ?? ""} className="clay-input w-full text-sm" placeholder="e.g. african restaurant, jollof" />
+                                    </div>
+                                    <div>
+                                        <label className="text-xs font-medium mb-1 block">Category</label>
+                                        <input name="category" defaultValue={(post as any)?.category ?? ""} className="clay-input w-full text-sm" placeholder="e.g. Nigerian Food Guide" />
+                                    </div>
+                                    <div>
+                                        <label className="text-xs font-medium mb-1 block">Tags (comma separated)</label>
+                                        <input name="tags" defaultValue={(post as any)?.tags ?? ""} className="clay-input w-full text-sm" placeholder="e.g. jollof, rice, spicy" />
+                                    </div>
+                                </div>
+                                <div className="grid grid-cols-2 gap-3 pt-2">
+                                    <div>
+                                        <label className="text-xs font-medium mb-1 block">Content Cluster</label>
+                                        <input name="cluster" defaultValue={(post as any)?.cluster ?? ""} className="clay-input w-full text-sm" placeholder="e.g. Discover Nigerian Food" />
+                                    </div>
+                                    <div>
+                                        <label className="text-xs font-medium mb-1 block">Target URL</label>
+                                        <input name="targetPage" defaultValue={(post as any)?.targetPage ?? ""} className="clay-input w-full text-sm" placeholder="e.g. /menu/jollof" />
+                                    </div>
+                                </div>
+                                <div>
+                                    <label className="text-xs font-medium mb-1 block">Related Articles (comma separated slugs)</label>
+                                    <input name="relatedArticles" defaultValue={(post as any)?.relatedArticles ?? ""} className="clay-input w-full text-sm" placeholder="e.g. what-is-egusi, what-is-amala" />
+                                </div>
+                                <label className="flex items-center gap-2 text-xs cursor-pointer mt-2">
+                                    <input type="checkbox" name="isPillar" defaultChecked={(post as any)?.isPillar} className="rounded" />
+                                    This is a Pillar Article
                                 </label>
-                                <input
-                                    name="metaTitle"
-                                    defaultValue={post?.metaTitle ?? ""}
-                                    className="clay-input w-full text-sm"
-                                    placeholder="Custom SEO title (defaults to post title)"
-                                />
                             </div>
-                            <div>
-                                <label className="text-xs font-medium mb-1 block">
-                                    Meta Description
-                                </label>
-                                <textarea
-                                    name="metaDescription"
-                                    defaultValue={post?.metaDescription ?? ""}
-                                    className="clay-input w-full text-sm"
-                                    rows={2}
-                                    placeholder="Custom SEO description (defaults to excerpt)"
-                                />
-                            </div>
-                        </div>
+                        </details>
                     </div>
 
                     <label className="flex items-center gap-2 text-sm cursor-pointer">

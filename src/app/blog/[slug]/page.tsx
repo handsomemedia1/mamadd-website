@@ -12,9 +12,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const post = await prisma.blogPost.findUnique({ where: { slug } });
     if (!post || !post.published) return {};
 
+    const postUrl = `https://mamadd.com/blog/${slug}`;
+
     return {
         title: post.metaTitle || post.title,
         description: post.metaDescription || post.excerpt || undefined,
+        alternates: {
+            canonical: postUrl,
+        },
         openGraph: {
             title: post.metaTitle || post.title,
             description: post.metaDescription || post.excerpt || undefined,
@@ -22,6 +27,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
             type: "article",
             publishedTime: post.createdAt.toISOString(),
             modifiedTime: post.updatedAt.toISOString(),
+            url: postUrl,
         },
     };
 }
@@ -100,11 +106,18 @@ export default async function BlogPostPage({ params }: Props) {
         });
     };
 
+    const postUrl = `https://mamadd.com/blog/${slug}`;
+
     // Article structured data
     const articleSchema = {
         "@context": "https://schema.org",
         "@type": "Article",
+        mainEntityOfPage: {
+            "@type": "WebPage",
+            "@id": postUrl
+        },
         headline: post.title,
+        url: postUrl,
         datePublished: post.createdAt.toISOString(),
         dateModified: post.updatedAt.toISOString(),
         author: {
@@ -118,8 +131,6 @@ export default async function BlogPostPage({ params }: Props) {
         description: post.excerpt || undefined,
         image: post.coverImage || undefined,
     };
-
-    const postUrl = `https://mamadd.com/blog/${slug}`;
 
     return (
         <>
