@@ -169,6 +169,9 @@ export default async function BlogPostPage({ params }: Props) {
                     />
                 </div>
 
+                {/* Related Articles Section */}
+                <RelatedArticles currentPost={post} />
+
                 {/* Footer CTA */}
                 <div
                     className="clay-card-warm p-8 text-center mt-12"
@@ -195,5 +198,90 @@ export default async function BlogPostPage({ params }: Props) {
                 </div>
             </article>
         </>
+    );
+}
+
+async function RelatedArticles({ currentPost }: { currentPost: any }) {
+    // 1. Explicit relationships
+    let explicitSlugs: string[] = [];
+    if (currentPost.relatedArticles) {
+        explicitSlugs = currentPost.relatedArticles.split(",").map((s: string) => s.trim()).filter(Boolean);
+    }
+
+    let related = await prisma.blogPost.findMany({
+        where: {
+            slug: { in: explicitSlugs, not: currentPost.slug },
+            published: true,
+        },
+        take: 3,
+    });
+
+    // 2. Same cluster fallback
+    if (related.length < 3 && currentPost.cluster) {
+        const clusterRelated = await prisma.blogPost.findMany({
+            where: {
+                cluster: currentPost.cluster,
+                slug: { notIn: [currentPost.slug, ...related.map((r) => r.slug)] },
+                published: true,
+            },
+            take: 3 - related.length,
+        });
+        related = [...related, ...clusterRelated];
+    }
+
+    // 3. Any fallback
+    if (related.length < 3) {
+        const fallback = await prisma.blogPost.findMany({
+            where: {
+                slug: { notIn: [currentPost.slug, ...related.map((r) => r.slug)] },
+                published: true,
+            },
+            take: 3 - related.length,
+            orderBy: { createdAt: "desc" },
+        });
+        related = [...related, ...fallback];
+    }
+
+    if (related.length === 0) return null;
+
+    return (
+        <div className="mt-16 mb-8 pt-8 border-t" style={{ borderColor: "var(--color-border)" }}>
+            <h2 className="text-2xl font-bold mb-6" style={{ fontFamily: "var(--font-heading)" }}>
+                Continue Exploring Nigerian Food
+            </h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                {related.map((article) => (
+                    <Link
+                        href={`/blog/${article.slug}`}
+                        key={article.id}
+                        className="clay-card block overflow-hidden group hover:-translate-y-1 transition-all duration-300"
+                    >
+                        <div className="h-40 w-full overflow-hidden bg-zinc-900 relative">
+                            {article.coverImage ? (
+                                <img
+                                    src={article.coverImage}
+                                    alt={article.coverImageAlt || article.title}
+                                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                />
+                            ) : (
+                                <div className="w-full h-full flex items-center justify-center bg-zinc-800 text-zinc-600">
+                                    No Image
+                                </div>
+                            )}
+                        </div>
+                        <div className="p-5">
+                            <h3 className="font-bold text-lg mb-2 line-clamp-2" style={{ fontFamily: "var(--font-heading)" }}>
+                                {article.title}
+                            </h3>
+                            {article.excerpt && (
+                                <p className="text-sm line-clamp-2" style={{ color: "var(--color-text-muted)" }}>
+                                    {article.excerpt}
+                                </p>
+                            )}
+                        </div>
+                    </Link>
+                ))}
+            </div>
+        </div>
     );
 }
