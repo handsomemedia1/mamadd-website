@@ -20,7 +20,8 @@ import Logo from "@/components/Logo";
 const sidebarLinks = [
     { href: "/admin", label: "Dashboard", icon: LayoutDashboard },
     { href: "/admin/menu", label: "Menu", icon: UtensilsCrossed },
-    { href: "/admin/bookings", label: "Bookings", icon: CalendarDays },
+    { href: "/admin/timetable", label: "Timetable", icon: CalendarDays },
+    { href: "/admin/bookings", label: "Bookings", icon: Users },
     { href: "/admin/customers", label: "Customers", icon: Users },
     { href: "/admin/blog", label: "Blog", icon: FileText },
     { href: "/admin/legal", label: "Legal & Payments", icon: Shield },
